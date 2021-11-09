@@ -11,10 +11,11 @@ import "./App.css";
 //Edit the controls to make the Earth rotate
 extend({ OrbitControls })
 function Controls() {
+  //Configure camera and controls (see orbitControls docs for more info)
   const controls = useRef()
   const { camera, gl } = useThree()
   useFrame(() => controls.current.update())
-  return <orbitControls ref={controls} args={[camera, gl.domElement]} enableDamping dampingFactor={0.1} rotateSpeed={0.18} autoRotate={true} autoRotateSpeed={0.1} enableZoom={false} />
+  return <orbitControls ref={controls} args={[camera, gl.domElement]} enableDamping maxPolarAngle={2} minPolarAngle={1.0} dampingFactor={0.1} rotateSpeed={0.18} autoRotate={true} autoRotateSpeed={0.1} enableZoom={false} />
 }
 
 //Make a loader
