@@ -5,7 +5,7 @@ import { Html, useProgress, Stars } from "@react-three/drei"; //Drei component
 import { EffectComposer, Bloom, Noise, Vignette, SMAA } from '@react-three/postprocessing' //Post-processing effects 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
-//Import our components
+//Import our planets components
 import "./App.css";
 import Earth from './Components/Planets/Earth/Earth';
 import EarthClouds from './Components/Planets/Earth/EarthClouds';

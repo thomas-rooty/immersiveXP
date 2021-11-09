@@ -1,33 +1,67 @@
 import React from 'react'
-import { useLoader } from "@react-three/fiber"; //Fiber React component for the Earth's atmosphere
+import { useLoader, useFrame } from "@react-three/fiber"; //Fiber React component for the Earth's atmosphere
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 
 //Get textures from their types
-const name = (type) => `earth_${type}.jpg`;
+const earthTex = (type) => `./earth/earth_${type}.jpg`;
+const moonTex = (type) => `./moon/moon_${type}.jpg`;
 
 const Earth = () => {
+    //Set the refs for the Earth and Moon
+    const Earth = React.useRef();
+    const MoonPivot = React.useRef();
+    const Moon = React.useRef();
+
+    //Get earth textures
     const [
-        colorMap,
-        displacementMap,
-        normalMap
+        earthColor,
+        earthDisplacement,
+        earthNormal
     ] = useLoader(TextureLoader, [
-        name("Color"),
-        name("Displacement"),
-        name("Normal")
+        earthTex("Color"),
+        earthTex("Displacement"),
+        earthTex("Normal")
     ]);
+
+    //Get moon textures
+    const [
+        moonColor,
+        moonDisplacement
+    ] = useLoader(TextureLoader, [
+        moonTex("Color"),
+        moonTex("Displacement"),
+    ]);
+
+    //Animate the moon
+    useFrame(({ clock }) => {
+        //Set the time
+        const ySpeed = (clock.getElapsedTime()) / 25;
+        const xSpeed = (clock.getElapsedTime()) / 100;
+        //Make the moon rotate on itself
+        Moon.current.rotation.x = xSpeed * 10;
+        Moon.current.rotation.y = ySpeed * 10;
+
+        //Make the MoonPivot rotate so the Moon orbits the Earth
+        MoonPivot.current.rotation.x = xSpeed;
+        MoonPivot.current.rotation.y = ySpeed;
+    });
     return (
         <>
             <ambientLight intensity={0.2} />
             <directionalLight position={[20, 20, 0]} intensity={0.8} />
-            <mesh>
+            <mesh ref={Earth}>
                 {/* Width and height segments for displacementMap */}
                 <sphereBufferGeometry args={[1.8, 100, 100]} />
-                <meshStandardMaterial
-                    displacementScale={0.03}
-                    map={colorMap}
-                    displacementMap={displacementMap}
-                    normalMap={normalMap}
-                />
+                <meshStandardMaterial displacementScale={0.03} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
+
+                <mesh ref={MoonPivot}>
+                    <sphereBufferGeometry args={[0, 0, 0]} />
+                    <mesh ref={Moon} position={[5, 0.2, 0]}>
+                        {/* Width and height segments for displacementMap */}
+                        <sphereBufferGeometry args={[0.45, 100, 100]} />
+                        <meshStandardMaterial displacementScale={0.05} map={moonColor} displacementMap={moonDisplacement} />
+                    </mesh>
+                </mesh>
             </mesh>
         </>
     );

@@ -8,7 +8,7 @@ const Clouds = () => {
 
   const [
     colorMap
-  ] = useLoader(TextureLoader, ["earth_Clouds.png"]);
+  ] = useLoader(TextureLoader, ["./earth/earth_Clouds.png"]);
 
   useFrame(({ clock }) => {
     const ySpeed = (clock.getElapsedTime())/50;
