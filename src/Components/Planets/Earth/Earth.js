@@ -55,7 +55,7 @@ const Earth = () => {
                 <meshStandardMaterial displacementScale={0.03} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
 
                 <mesh ref={MoonPivot}>
-                    <sphereBufferGeometry args={[0, 0, 0]} />
+                    <boxGeometry args={[0, 0, 0]} />
                     <mesh ref={Moon} position={[5, 0.2, 0]}>
                         {/* Width and height segments for displacementMap */}
                         <sphereBufferGeometry args={[0.45, 100, 100]} />
