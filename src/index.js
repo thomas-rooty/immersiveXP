@@ -5,9 +5,10 @@ import App from './App';
 // eslint-disable-next-line no-unused-vars
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const container = document.getElementById('root');
+
+// Create a root
+const root = ReactDOM.createRoot(container);
+
+// Render the component in the root
+root.render(<App />);

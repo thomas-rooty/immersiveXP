@@ -2,12 +2,14 @@ import ReactDOM from 'react-dom'
 import React, { useRef, Suspense } from 'react'
 import { Canvas, extend, useFrame, useThree } from "@react-three/fiber"; //Fiber React component
 import { Html, useProgress, Stars } from "@react-three/drei"; //Drei component 
-import { EffectComposer, Bloom, Noise, Vignette } from '@react-three/postprocessing' //Post-processing effects 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 //Import our planets components
 import "./App.css";
 import Earth from './Components/Planets/Earth/Earth';
+
+//Import fx
+import Effects from './Components/Effects/Effects';
 
 //Controls component that will be used in the scene to control the camera and the scene
 extend({ OrbitControls })
@@ -29,18 +31,17 @@ const Loader = () => {
 export default function App() {
   return (
     <div className="App">
-      <Canvas>
+      <Canvas
+        mode="concurrent"
+        performance={{ min: 0.5 }}
+        gl={{ antialias: false }}>
 
         {/*Loading screen*/}
         <Suspense fallback={<Loader />}>
           <Earth />
-          <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade />
+          <Stars radius={100} depth={50} count={1250} factor={4} saturation={0} fade />
           {/*Post-processing effects*/}
-          <EffectComposer>
-            <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={900} />
-            <Noise opacity={0.05} />
-            <Vignette eskil={false} offset={0.1} darkness={1.3} />
-          </EffectComposer>
+          <Effects />
           {/*End of Post-processing effects*/}
         </Suspense>
 
