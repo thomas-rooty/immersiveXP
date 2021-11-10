@@ -4,11 +4,9 @@ import { Canvas, extend, useFrame, useThree } from "@react-three/fiber"; //Fiber
 import { Html, useProgress, Stars } from "@react-three/drei"; //Drei component 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
-//Import our planets components
+//Import our Components
 import "./App.css";
 import Earth from './Components/Planets/Earth/Earth';
-
-//Import fx
 import Effects from './Components/Effects/Effects';
 
 //Controls component that will be used in the scene to control the camera and the scene
@@ -18,7 +16,7 @@ const Controls = () => {
   const controls = useRef()
   const { camera, gl } = useThree()
   useFrame(() => controls.current.update())
-  return <orbitControls ref={controls} args={[camera, gl.domElement]} enableDamping enablePan={false} maxPolarAngle={2} minPolarAngle={0.8} dampingFactor={0.1} rotateSpeed={0.3} autoRotate={true} autoRotateSpeed={0.1} enableZoom={true} maxZoom={0.1} />
+  return <orbitControls ref={controls} args={[camera, gl.domElement]} enableDamping enablePan={true} maxPolarAngle={2} minPolarAngle={0.8} dampingFactor={0.1} rotateSpeed={0.3} autoRotate={true} autoRotateSpeed={0.1} enableZoom={true} maxZoom={0.1} />
 }
 
 //Loader component that will be used to wait for the scene to load before rendering
@@ -37,9 +35,7 @@ export default function App() {
         <Suspense fallback={<Loader />}>
           <Earth />
           <Stars radius={100} depth={50} count={1250} factor={4} saturation={0} fade />
-          {/*Post-processing effects*/}
           <Effects />
-          {/*End of Post-processing effects*/}
         </Suspense>
 
         {/*Controls the scene*/}
