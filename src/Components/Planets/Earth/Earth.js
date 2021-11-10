@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLoader, useFrame } from "@react-three/fiber"; //Fiber React component for the Earth's atmosphere
+import { Html, Detailed, Sphere } from "@react-three/drei"; //Drei component 
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 
 //Get textures from their types
@@ -44,44 +45,65 @@ const Earth = () => {
         const ySpeed = (clock.getElapsedTime()) / 25;
         const xSpeed = (clock.getElapsedTime()) / 100;
         //Make the moon rotate on itself
-        Moon.current.rotation.x = xSpeed * 10;
-        Moon.current.rotation.y = ySpeed * 10;
+        Moon.current.rotation.z = ySpeed;
+        Moon.current.rotation.y = ySpeed;
 
         //Make the earth rotate on itself
-        Earth.current.rotation.z = ySpeed;
         Earth.current.rotation.y = ySpeed;
 
         //Make the clouds rotates on themselves
-        Clouds.current.rotation.z = ySpeed * 1.2;
-        Clouds.current.rotation.y = ySpeed * 1.1;
+        Clouds.current.rotation.y = ySpeed * 2;
 
         //Make the MoonPivot rotate so the Moon orbits the Earth
-        MoonPivot.current.rotation.y = ySpeed;
+        MoonPivot.current.rotation.y = ySpeed / 2;
     });
 
     return (
         <>
             <ambientLight intensity={0.3} />
             <directionalLight position={[20, 20, 0]} intensity={0.8} />
-            <mesh ref={Earth}>
-                {/* Width and height segments for displacementMap */}
-                <sphereBufferGeometry args={[1.8, 100, 100]} />
-                <meshStandardMaterial displacementScale={0.04} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
 
-                <mesh ref={MoonPivot}>
-                    <boxGeometry args={[0, 0, 0]} />
-                    <mesh ref={Moon} position={[7, 0.2, 0]}>
-                        {/* Width and height segments for displacementMap */}
-                        <sphereBufferGeometry args={[0.45, 100, 100]} />
-                        <meshStandardMaterial displacementScale={0.05} map={moonColor} displacementMap={moonDisplacement} />
-                    </mesh>
-                </mesh>
-                <mesh ref={Clouds}>
-                    {/* Width and height segments for displacementMap */}
-                    <sphereBufferGeometry args={[1.82, 100, 100]} />
-                    <meshStandardMaterial
-                        map={colorMap} transparent={true} opacity={1}
-                    />
+            <mesh ref={Earth}>
+                <Detailed distances={[0, 25, 150]}>
+                    <Sphere args={[1.8, 50, 50]}>
+                        <meshStandardMaterial displacementScale={0.04} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
+                        <Html prepend distanceFactor={10} transform sprite portal={Moon}>
+                            <p class="earthTxt">The Earth</p>
+                        </Html>
+                    </Sphere>
+                    <Sphere args={[1.8, 6, 6]}>
+                        <meshStandardMaterial displacementScale={0.04} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
+                    </Sphere>
+                    <Sphere args={[1.8, 1, 1]}>
+                        <meshStandardMaterial displacementScale={0.04} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
+                    </Sphere>
+                </Detailed>
+            </mesh>
+
+            <mesh ref={Clouds}>
+                <sphereBufferGeometry args={[1.82, 100, 100]} />
+                <meshStandardMaterial
+                    map={colorMap} transparent={true} opacity={1}
+                />
+            </mesh>
+
+            <mesh ref={MoonPivot}>
+                <boxGeometry args={[0, 0, 0]} />
+                <mesh ref={Moon} position={[7, 0.2, 0]}>
+                    <Detailed distances={[0, 25, 150]}>
+                        <Sphere args={[0.45, 50, 50]} >
+                            <meshStandardMaterial displacementScale={0.05} map={moonColor} displacementMap={moonDisplacement} />
+                            <Html prepend distanceFactor={10} transform sprite portal={Moon}>
+                                <p class="moonTxt">The Moon</p>
+                            </Html>
+                        </Sphere>
+                        <Sphere args={[0.45, 6, 6]} >
+                            <meshStandardMaterial displacementScale={0.05} map={moonColor} displacementMap={moonDisplacement} />
+                        </Sphere>
+                        <Sphere args={[0.45, 1, 1]} >
+                            <meshStandardMaterial displacementScale={0.05} map={moonColor} displacementMap={moonDisplacement} />
+                        </Sphere>
+                    </Detailed>
                 </mesh>
             </mesh>
 

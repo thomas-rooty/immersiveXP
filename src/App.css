@@ -1,13 +1,28 @@
 .App {
-  font-family: sans-serif;
-  text-align: center;
-  height: 100vh;
-  width: 100vw;
+    font-family: sans-serif;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  background: rgb(8, 8, 8);
-  color: white;
+    padding: 0;
+    margin: 0;
+    background: rgb(8, 8, 8);
+    color: white;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 6px;
+}
+
+.moonTxt {
+  margin-top: 30px;
+  margin-left: 80px;
+}
+
+.earthTxt {
+  margin-top: 90px;
+  margin-left: 190px;
 }
