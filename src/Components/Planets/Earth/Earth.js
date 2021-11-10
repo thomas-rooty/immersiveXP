@@ -58,9 +58,10 @@ const Earth = () => {
         //Make the MoonPivot rotate so the Moon orbits the Earth
         MoonPivot.current.rotation.y = ySpeed;
     });
+
     return (
         <>
-            <ambientLight intensity={0.2} />
+            <ambientLight intensity={0.3} />
             <directionalLight position={[20, 20, 0]} intensity={0.8} />
             <mesh ref={Earth}>
                 {/* Width and height segments for displacementMap */}
