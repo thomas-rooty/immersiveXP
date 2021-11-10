@@ -16,7 +16,7 @@ const Controls = () => {
   const controls = useRef()
   const { camera, gl } = useThree()
   useFrame(() => controls.current.update())
-  return <orbitControls ref={controls} args={[camera, gl.domElement]} enableDamping enablePan={true} maxPolarAngle={2} minPolarAngle={0.8} dampingFactor={0.1} rotateSpeed={0.3} autoRotate={true} autoRotateSpeed={0.1} enableZoom={true} maxZoom={0.1} />
+  return <orbitControls ref={controls} args={[camera, gl.domElement]} enableDamping enablePan={true} maxPolarAngle={2} minPolarAngle={0.8} dampingFactor={0.1} rotateSpeed={0.3} enableZoom={true} maxZoom={0.1} />
 }
 
 //Loader component that will be used to wait for the scene to load before rendering
