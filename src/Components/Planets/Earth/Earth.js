@@ -45,7 +45,7 @@ const Earth = () => {
         const ySpeed = (clock.getElapsedTime()) / 25;
         const xSpeed = (clock.getElapsedTime()) / 100;
         //Make the moon rotate on itself
-        Moon.current.rotation.z = ySpeed;
+        Moon.current.rotation.z = xSpeed;
         Moon.current.rotation.y = ySpeed;
 
         //Make the earth rotate on itself
@@ -60,31 +60,32 @@ const Earth = () => {
 
     return (
         <>
-            <ambientLight intensity={0.3} />
-            <directionalLight position={[20, 20, 0]} intensity={0.8} />
+            <ambientLight intensity={0.2} />
+            <directionalLight position={[20, 15, 0]} intensity={1.2} />
 
             <mesh ref={Earth}>
                 <Detailed distances={[0, 25, 150]}>
-                    <Sphere args={[1.8, 50, 50]}>
+                    <Sphere args={[1.8, 50, 50]} >
                         <meshStandardMaterial displacementScale={0.04} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
                         <Html prepend distanceFactor={10} transform sprite portal={Moon}>
-                            <p class="earthTxt">The Earth</p>
+                            <p className="earthTxt">Earth</p>
                         </Html>
                     </Sphere>
-                    <Sphere args={[1.8, 6, 6]}>
+                    <Sphere args={[1.8, 6, 6]} >
                         <meshStandardMaterial displacementScale={0.04} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
                     </Sphere>
-                    <Sphere args={[1.8, 1, 1]}>
+                    <Sphere args={[1.8, 1, 1]} >
                         <meshStandardMaterial displacementScale={0.04} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
                     </Sphere>
                 </Detailed>
             </mesh>
 
             <mesh ref={Clouds}>
-                <sphereBufferGeometry args={[1.82, 100, 100]} />
-                <meshStandardMaterial
-                    map={colorMap} transparent={true} opacity={1}
-                />
+                <Sphere args={[1.82, 100, 100]} >
+                    <meshStandardMaterial
+                        map={colorMap} transparent={true} opacity={1}
+                    />
+                </Sphere>
             </mesh>
 
             <mesh ref={MoonPivot}>
@@ -94,7 +95,7 @@ const Earth = () => {
                         <Sphere args={[0.45, 50, 50]} >
                             <meshStandardMaterial displacementScale={0.05} map={moonColor} displacementMap={moonDisplacement} />
                             <Html prepend distanceFactor={10} transform sprite portal={Moon}>
-                                <p class="moonTxt">The Moon</p>
+                                <p className="moonTxt">Moon</p>
                             </Html>
                         </Sphere>
                         <Sphere args={[0.45, 6, 6]} >
