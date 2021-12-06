@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom'
 import React, { useRef, Suspense } from 'react'
 import { Canvas, extend, useFrame, useThree } from "@react-three/fiber"; //Fiber React component
 import { Html, useProgress, Stars } from "@react-three/drei"; //Drei component 
@@ -21,8 +20,12 @@ const Controls = () => {
 }
 
 const Loader = () => {
-  const { active, progress, errors, item, loaded, total } = useProgress();
-  return <Html center>{progress} % loaded</Html>;
+  const { progress } = useProgress()
+  return (
+    <Html center>
+      <span style={{ color: 'white' }}>{progress} % loaded</span>
+    </Html>
+  )
 }
 
 //Initialize the app
@@ -33,6 +36,7 @@ export default function App() {
 
         {/*Loading screen*/}
         <Suspense fallback={<Loader />}>
+          {/* Objects */}
           <Milkyway />
           <Earth />
           <Stars radius={100} depth={50} count={1250} factor={4} saturation={0} fade />
