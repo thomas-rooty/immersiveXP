@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLoader, useFrame } from "@react-three/fiber"; //Fiber React component for the Earth's atmosphere
-import { Html, Detailed, Sphere } from "@react-three/drei"; //Drei component 
+import { Detailed, Sphere } from "@react-three/drei"; //Drei component 
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 
 //Get textures from their types
@@ -67,9 +67,6 @@ const Earth = () => {
                 <Detailed distances={[0, 25, 150]}>
                     <Sphere args={[1.8, 50, 50]} >
                         <meshStandardMaterial displacementScale={0.04} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
-                        <Html prepend distanceFactor={10} transform sprite portal={Moon}>
-                            <p className="earthTxt">Earth</p>
-                        </Html>
                     </Sphere>
                     <Sphere args={[1.8, 6, 6]} >
                         <meshStandardMaterial displacementScale={0.04} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
@@ -94,9 +91,6 @@ const Earth = () => {
                     <Detailed distances={[0, 25, 150]}>
                         <Sphere args={[0.45, 50, 50]} >
                             <meshStandardMaterial displacementScale={0.05} map={moonColor} displacementMap={moonDisplacement} />
-                            <Html prepend distanceFactor={10} transform sprite portal={Moon}>
-                                <p className="moonTxt">Moon</p>
-                            </Html>
                         </Sphere>
                         <Sphere args={[0.45, 6, 6]} >
                             <meshStandardMaterial displacementScale={0.05} map={moonColor} displacementMap={moonDisplacement} />

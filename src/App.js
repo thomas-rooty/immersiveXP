@@ -14,15 +14,14 @@ import Effects from './Components/Effects/Effects';
 extend({ OrbitControls })
 const Controls = () => {
   //Configure camera and controls (see orbitControls docs for more info)
-  const controls = useRef()
-  const { camera, gl } = useThree()
-  useFrame(() => controls.current.update())
-  return <orbitControls ref={controls} args={[camera, gl.domElement]} enableDamping enablePan={false} maxPolarAngle={2} minPolarAngle={0.8} dampingFactor={0.1} rotateSpeed={0.3} enableZoom={true} minDistance={5} maxDistance={300} autoRotate={true} autoRotateSpeed={0.05} />
+  const controls = useRef();
+  const { camera, gl } = useThree();
+  useFrame(() => controls.current.update());
+  return <orbitControls ref={controls} args={[camera, gl.domElement]} enableDamping enablePan={false} maxPolarAngle={2} minPolarAngle={0.8} dampingFactor={0.1} rotateSpeed={0.6} enableZoom={true} minDistance={5} maxDistance={300} autoRotate={true} autoRotateSpeed={0.2} />
 }
 
 const Loader = () => {
   const { active, progress, errors, item, loaded, total } = useProgress();
-  console.log(active, progress, errors, item, loaded, total);
   return <Html center>{progress} % loaded</Html>;
 }
 

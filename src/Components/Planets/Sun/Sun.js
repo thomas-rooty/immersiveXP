@@ -40,7 +40,7 @@ const Sun = () => {
                 <Detailed distances={[0, 25, 150]}>
                     <Sphere args={[1.8, 50, 50]} >
                         <meshStandardMaterial displacementScale={0.04} map={sunColor} displacementMap={sunDisplacement} normalMap={sunNormal} />
-                        <Html prepend distanceFactor={10} transform sprite portal={Moon}>
+                        <Html distanceFactor={10} transform sprite portal={Moon}>
                             <p className="sunTxt">Sun</p>
                         </Html>
                     </Sphere>
