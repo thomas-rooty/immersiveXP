@@ -9,14 +9,14 @@ const earthTex = (type) => `./earth/earth_${type}.jpg`;
 const moonTex = (type) => `./moon/moon_${type}.jpg`;
 
 const Earth = () => {
+    //Set the context
+    const contextNavbar = useContext(PlanetContext);
+
     //Set the refs for the Earth and Moon
     const Earth = useRef();
     const Clouds = useRef();
     const MoonPivot = useRef();
     const Moon = useRef();
-
-    //Set the context
-    const contextNavbar = useContext(PlanetContext);
 
     //Get earth textures
     const [
@@ -64,7 +64,7 @@ const Earth = () => {
 
     return (
         <>
-            {console.log("Earth component returns : " + contextNavbar.planet)}
+            {console.log(contextNavbar.planet)}
             <ambientLight intensity={0.3} />
             <directionalLight position={[20, 15, 0]} intensity={1.2} />
 
