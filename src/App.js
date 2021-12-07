@@ -51,29 +51,33 @@ const Loader = () => {
 //Initialize the app
 export default function App() {
   const [planet, setPlanet] = useState("earth");
-  const handleChangePlanet = () => {
-    setPlanet("onela");
-    console.log(planet);
+  const handleChangePlanet = (planetName) => {
+    setPlanet(undefined);
+    setPlanet(planetName);
   }
+
   return (
-    <PlanetContext.Provider value={{ handleChangePlanet, planet }}>
-      <Navbar />
-      <div className="App">
-        <Canvas mode="concurrent" performance={{ min: 0.5 }} gl={{ antialias: false }}>
+    <>
+      {console.log(planet)}
+      <PlanetContext.Provider value={{ handleChangePlanet, planet }}>
+        <Navbar />
+        <div className="App">
+          <Canvas mode="concurrent" performance={{ min: 0.5 }} gl={{ antialias: false }}>
 
-          {/*Loading screen*/}
-          <Suspense fallback={<Loader />}>
-            {/* Objects */}
-            <Milkyway />
-            <Earth />
-            <Stars radius={100} depth={50} count={1250} factor={4} saturation={0} fade />
-            <Effects />
-          </Suspense>
+            {/*Loading screen*/}
+            <Suspense fallback={<Loader />}>
+              {/* Objects */}
+              <Milkyway />
+              <Earth />
+              <Stars radius={100} depth={50} count={1250} factor={4} saturation={0} fade />
+              <Effects />
+            </Suspense>
 
-          {/*Controls the scene*/}
-          <Controls />
-        </Canvas>
-      </div>
-    </PlanetContext.Provider >
+            {/*Controls the scene*/}
+            <Controls />
+          </Canvas>
+        </div>
+      </PlanetContext.Provider >
+    </>
   );
 }
