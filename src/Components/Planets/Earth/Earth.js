@@ -1,16 +1,13 @@
-import { React, useContext, useRef } from 'react'
+import { React, useRef } from 'react'
 import { useLoader, useFrame } from "@react-three/fiber"; //Fiber React component for the Earth's atmosphere
 import { Detailed, Sphere } from "@react-three/drei"; //Drei component 
 import { TextureLoader } from "three/src/loaders/TextureLoader";
-import PlanetContext from '../../../Context/PlanetContext';
 
 //Get textures from their types
 const earthTex = (type) => `./earth/earth_${type}.jpg`;
 const moonTex = (type) => `./moon/moon_${type}.jpg`;
 
-const Earth = () => {
-    //Set the context
-    const contextNavbar = useContext(PlanetContext);
+const Earth = (props) => {
 
     //Set the refs for the Earth and Moon
     const Earth = useRef();
@@ -64,7 +61,7 @@ const Earth = () => {
 
     return (
         <>
-            {console.log(contextNavbar.planet)}
+            {console.log(props.value.planet)}
             <ambientLight intensity={0.3} />
             <directionalLight position={[20, 15, 0]} intensity={1.2} />
 

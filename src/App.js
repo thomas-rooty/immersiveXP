@@ -3,6 +3,9 @@ import { Canvas, extend, useFrame, useThree } from "@react-three/fiber"; //Fiber
 import { Html, useProgress, Stars } from "@react-three/drei"; //Drei component 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
+// Import Context
+import PlanetContext from './Context/PlanetContext';
+
 //Import our Space Components
 import "./App.css";
 import Milkyway from './Components/Environment/Milkyway';
@@ -12,8 +15,6 @@ import Effects from './Components/Effects/Effects';
 // Import UI components
 import Navbar from './Components/Navbar/Navbar';
 
-// Import Context
-import PlanetContext from './Context/PlanetContext';
 
 //Controls component that will be used in the scene to control the camera and the scene
 extend({ OrbitControls })
@@ -59,7 +60,6 @@ export default function App() {
 
   return (
     <>
-      {console.log(planet)}
       <PlanetContext.Provider value={{ handleChangePlanet, planet }}>
         <Navbar />
         <div className="App">
@@ -69,7 +69,7 @@ export default function App() {
             <Suspense fallback={<Loader />}>
               {/* Objects */}
               <Milkyway />
-              <Earth />
+              <Earth value={{ handleChangePlanet, planet }} />
               <Stars radius={100} depth={50} count={1250} factor={4} saturation={0} fade />
               <Effects />
             </Suspense>
