@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Cinzel';
+    src: url('../../Fonts/Cinzel-Regular.woff2') format('woff2'), url('../../Fonts/Cinzel-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.navbar {
+    position: fixed;
+    top: 30px;
+    right: 0;
+    width: 60vw;
+    height: 75px;
+    line-height: 75px;
+    padding: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+    z-index: 1;
+    /* Gradient */
+    background: rgb(25, 25, 25);
+    background: linear-gradient(90deg, rgba(25, 25, 25, 1) 0%, rgba(13, 13, 13, 1) 73%, rgba(8, 8, 8, 1) 100%);
+    /* Fit contents to width */
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+}
+
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
+.navbar-item:hover,
+.navbar-item:active {
+    text-decoration: underline;
+    text-underline-offset: 30px;
+    text-decoration-thickness: 3px;
+    text-decoration-color: white;
+}
+
+.nav-Font {
+    color: rgb(238, 238, 238);
+    font-size: 20px;
+    font-family: 'Cinzel';
+    font-weight: normal;
+    font-style: normal;
+}

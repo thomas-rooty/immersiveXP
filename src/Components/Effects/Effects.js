@@ -8,7 +8,7 @@ const Effects = () => {
     const ref = useRef()
     return (
         <EffectComposer>
-            <Bloom intensity={1.2} luminanceThreshold={0} luminanceSmoothing={0.9} height={900} kernelSize={KernelSize.SMALL} />
+            <Bloom intensity={1.2} luminanceThreshold={0} luminanceSmoothing={0.9} height={300} kernelSize={KernelSize.LARGE} />
             <Vignette eskil={false} offset={0.1} darkness={1.5} />
             <Noise premultiply blendFunction={BlendFunction.ADD} />
             <ContactShadows />
