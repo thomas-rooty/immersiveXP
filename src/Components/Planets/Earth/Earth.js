@@ -64,6 +64,7 @@ const Earth = () => {
 
     return (
         <>
+            {console.log("Earth component returns : " + contextNavbar.planet)}
             <ambientLight intensity={0.3} />
             <directionalLight position={[20, 15, 0]} intensity={1.2} />
 

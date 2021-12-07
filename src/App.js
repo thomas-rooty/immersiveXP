@@ -48,9 +48,10 @@ const Loader = () => {
   )
 }
 
-//Initialize the app
+// Initialize the app
 export default function App() {
-  const [planet, setPlanet] = useState("earth");
+  // Use and handle planets changes
+  const [planet, setPlanet] = useState("Earth");
   const handleChangePlanet = (planetName) => {
     setPlanet(undefined);
     setPlanet(planetName);
