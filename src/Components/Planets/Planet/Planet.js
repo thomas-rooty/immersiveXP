@@ -1,6 +1,7 @@
 import { React, useRef } from 'react'
 import { useLoader, useFrame } from "@react-three/fiber"; //Fiber React component for the Planet's atmosphere
-import { Detailed, Sphere } from "@react-three/drei"; //Drei component 
+import { DoubleSide } from 'three';
+import { Detailed, Sphere, Ring } from "@react-three/drei"; //Drei component 
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 
 
@@ -10,6 +11,7 @@ const Planet = (props) => {
     const Clouds = useRef();
     const MoonPivotPoint = useRef();
     const Moon = useRef();
+    const SaturnRing = useRef();
 
     //Get textures from their types
     const planetTex = (type) => `./planet/${props.value.planet}/${props.value.planet}_${type}.jpg`;
@@ -63,6 +65,13 @@ const Planet = (props) => {
         } else if (props.value.planet === "venus") {
             Clouds.current.visible = true;
         }
+
+        if (props.value.planet === "saturn") {
+            Clouds.current.visible = false;
+            SaturnRing.current.visible = true;
+        } else {
+            SaturnRing.current.visible = false;
+        }
     });
 
     return (
@@ -82,6 +91,12 @@ const Planet = (props) => {
                         <meshStandardMaterial displacementScale={0.04} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
                     </Sphere>
                 </Detailed>
+                <mesh ref={SaturnRing}>
+                    <Ring args={[2.5, 4, 50, 50]} >
+                        <meshStandardMaterial />
+                        <meshBasicMaterial attach="material" map={planetColor} side={DoubleSide} />
+                    </Ring>
+                </mesh>
             </mesh>
 
             <mesh ref={Clouds}>
