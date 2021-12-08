@@ -5,38 +5,31 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 
 
 const Planet = (props) => {
+    //Set the refs for the Planet and Moon
+    const Planet = useRef();
+    const Clouds = useRef();
+    const MoonPivotPoint = useRef();
+    const Moon = useRef();
+
     //Get textures from their types
     const planetTex = (type) => `./planet/${props.value.planet}/${props.value.planet}_${type}.jpg`;
     const moonTex = (type) => `./moon/moon_${type}.jpg`;
 
-    //Set the refs for the Planet and Moon
-    const Planet = useRef();
-    const Clouds = useRef();
-    const MoonPivot = useRef();
-    const Moon = useRef();
-
-    //Get planet textures
+    //Get planet textures and clouds texture
     const [
         planetColor,
         planetDisplacement,
-        planetNormal
-    ] = useLoader(TextureLoader, [
-        planetTex("Color"),
-        planetTex("Displacement"),
-        planetTex("Normal")
-    ]);
-
-    //Get moon textures 
-    const [
+        planetNormal,
         moonColor,
         moonDisplacement
     ] = useLoader(TextureLoader, [
+        planetTex("Color"),
+        planetTex("Displacement"),
+        planetTex("Normal"),
         moonTex("Color"),
         moonTex("Displacement"),
     ]);
-
-    //Get clouds textures
-    let [
+    const [
         cloudMap
     ] = useLoader(TextureLoader, ["./planet/earth/earth_Clouds.png"]);
 
@@ -55,17 +48,17 @@ const Planet = (props) => {
         //Make the clouds rotates on themselves
         Clouds.current.rotation.y = ySpeed * 2;
 
-        //Make the MoonPivot rotate so the Moon orbits the Planet
-        MoonPivot.current.rotation.y = ySpeed / 2;
+        //Make the MoonPivotPoint rotate so the Moon orbits the Planet
+        MoonPivotPoint.current.rotation.y = ySpeed / 2;
 
         // Unload the moon and moonPivot when props.value.planet is different from "earth"
         if (props.value.planet !== "earth") {
             Moon.current.visible = false;
-            MoonPivot.current.visible = false;
+            MoonPivotPoint.current.visible = false;
             Clouds.current.visible = false;
         } else if (props.value.planet === "earth") {
             Moon.current.visible = true;
-            MoonPivot.current.visible = true;
+            MoonPivotPoint.current.visible = true;
             Clouds.current.visible = true;
         } else if (props.value.planet === "venus") {
             Clouds.current.visible = true;
@@ -99,7 +92,7 @@ const Planet = (props) => {
                 </Sphere>
             </mesh>
 
-            <mesh ref={MoonPivot}>
+            <mesh ref={MoonPivotPoint}>
                 <boxGeometry args={[0, 0, 0]} />
                 <mesh ref={Moon} position={[7, 0.2, 0]}>
                     <Detailed distances={[0, 25, 150]}>
