@@ -1,32 +1,32 @@
 import { React, useRef } from 'react'
-import { useLoader, useFrame } from "@react-three/fiber"; //Fiber React component for the Earth's atmosphere
+import { useLoader, useFrame } from "@react-three/fiber"; //Fiber React component for the Planet's atmosphere
 import { Detailed, Sphere } from "@react-three/drei"; //Drei component 
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 
-//Get textures from their types
-const earthTex = (type) => `./earth/earth_${type}.jpg`;
-const moonTex = (type) => `./moon/moon_${type}.jpg`;
 
-const Earth = (props) => {
+const Planet = (props) => {
+    //Get textures from their types
+    const planetTex = (type) => `./planet/${props.value.planet}/${props.value.planet}_${type}.jpg`;
+    const moonTex = (type) => `./moon/moon_${type}.jpg`;
 
-    //Set the refs for the Earth and Moon
-    const Earth = useRef();
+    //Set the refs for the Planet and Moon
+    const Planet = useRef();
     const Clouds = useRef();
     const MoonPivot = useRef();
     const Moon = useRef();
 
-    //Get earth textures
+    //Get planet textures
     const [
-        earthColor,
-        earthDisplacement,
-        earthNormal
+        planetColor,
+        planetDisplacement,
+        planetNormal
     ] = useLoader(TextureLoader, [
-        earthTex("Color"),
-        earthTex("Displacement"),
-        earthTex("Normal")
+        planetTex("Color"),
+        planetTex("Displacement"),
+        planetTex("Normal")
     ]);
 
-    //Get moon textures
+    //Get moon textures 
     const [
         moonColor,
         moonDisplacement
@@ -36,11 +36,11 @@ const Earth = (props) => {
     ]);
 
     //Get clouds textures
-    const [
-        colorMap
-    ] = useLoader(TextureLoader, ["./earth/earth_Clouds.png"]);
+    let [
+        cloudMap
+    ] = useLoader(TextureLoader, ["./planet/earth/earth_Clouds.png"]);
 
-    //Animate the moon
+    //Animate the objets in the scene
     useFrame(({ clock }) => {
         //Set the time
         const ySpeed = (clock.getElapsedTime()) / 25;
@@ -49,32 +49,44 @@ const Earth = (props) => {
         Moon.current.rotation.z = xSpeed;
         Moon.current.rotation.y = ySpeed;
 
-        //Make the earth rotate on itself
-        Earth.current.rotation.y = ySpeed;
+        //Make the planet rotate on itself
+        Planet.current.rotation.y = ySpeed;
 
         //Make the clouds rotates on themselves
         Clouds.current.rotation.y = ySpeed * 2;
 
-        //Make the MoonPivot rotate so the Moon orbits the Earth
+        //Make the MoonPivot rotate so the Moon orbits the Planet
         MoonPivot.current.rotation.y = ySpeed / 2;
+
+        // Unload the moon and moonPivot when props.value.planet is different from "earth"
+        if (props.value.planet !== "earth") {
+            Moon.current.visible = false;
+            MoonPivot.current.visible = false;
+            Clouds.current.visible = false;
+        } else if (props.value.planet === "earth") {
+            Moon.current.visible = true;
+            MoonPivot.current.visible = true;
+            Clouds.current.visible = true;
+        } else if (props.value.planet === "venus") {
+            Clouds.current.visible = true;
+        }
     });
 
     return (
         <>
-            {console.log(props.value.planet)}
             <ambientLight intensity={0.3} />
             <directionalLight position={[20, 15, 0]} intensity={1.2} />
 
-            <mesh ref={Earth}>
+            <mesh ref={Planet}>
                 <Detailed distances={[0, 25, 150]}>
                     <Sphere args={[1.8, 50, 50]} >
-                        <meshStandardMaterial displacementScale={0.04} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
+                        <meshStandardMaterial displacementScale={0.04} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
                     </Sphere>
                     <Sphere args={[1.8, 6, 6]} >
-                        <meshStandardMaterial displacementScale={0.04} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
+                        <meshStandardMaterial displacementScale={0.04} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
                     </Sphere>
                     <Sphere args={[1.8, 1, 1]} >
-                        <meshStandardMaterial displacementScale={0.04} map={earthColor} displacementMap={earthDisplacement} normalMap={earthNormal} />
+                        <meshStandardMaterial displacementScale={0.04} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
                     </Sphere>
                 </Detailed>
             </mesh>
@@ -82,7 +94,7 @@ const Earth = (props) => {
             <mesh ref={Clouds}>
                 <Sphere args={[1.82, 100, 100]} >
                     <meshStandardMaterial
-                        map={colorMap} transparent={true} opacity={1}
+                        map={cloudMap} transparent={true} opacity={1}
                     />
                 </Sphere>
             </mesh>
@@ -108,4 +120,4 @@ const Earth = (props) => {
     );
 }
 
-export default Earth;
+export default Planet;

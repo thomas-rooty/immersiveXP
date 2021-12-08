@@ -9,7 +9,7 @@ import PlanetContext from './Context/PlanetContext';
 //Import our Space Components
 import "./App.css";
 import Milkyway from './Components/Environment/Milkyway';
-import Earth from './Components/Planets/Earth/Earth';
+import Planet from './Components/Planets/Planet/Planet';
 import Effects from './Components/Effects/Effects';
 
 // Import UI components
@@ -28,12 +28,12 @@ const Controls = () => {
     args={[camera, gl.domElement]}
     enableDamping
     enablePan={false}
-    maxPolarAngle={2}
+    maxPolarAngle={2}l
     minPolarAngle={0.8}
     dampingFactor={0.1}
     rotateSpeed={0.6}
     enableZoom={true}
-    minDistance={10}
+    minDistance={5}
     maxDistance={300}
     autoRotate={true}
     autoRotateSpeed={0.2} />
@@ -52,7 +52,7 @@ const Loader = () => {
 // Initialize the app
 export default function App() {
   // Use and handle planets changes
-  const [planet, setPlanet] = useState("Earth");
+  const [planet, setPlanet] = useState("earth");
   const handleChangePlanet = (planetName) => {
     setPlanet(undefined);
     setPlanet(planetName);
@@ -69,7 +69,7 @@ export default function App() {
             <Suspense fallback={<Loader />}>
               {/* Objects */}
               <Milkyway />
-              <Earth value={{ handleChangePlanet, planet }} />
+              <Planet value={{ handleChangePlanet, planet }} />
               <Stars radius={100} depth={50} count={1250} factor={4} saturation={0} fade />
               <Effects />
             </Suspense>

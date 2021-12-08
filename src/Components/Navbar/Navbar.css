@@ -34,6 +34,11 @@ a:-webkit-any-link {
     text-decoration: none;
 }
 
+.navbar-item {
+    background: none;
+    border: none;
+}
+
 .navbar-item:hover,
 .navbar-item:active {
     text-decoration: underline;
