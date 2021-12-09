@@ -6,20 +6,24 @@
     font-display: swap;
 }
 
+.navbar-container {
+    display: flex;
+    justify-content: center;
+}
+
 .navbar {
     position: fixed;
     top: 30px;
-    right: 0;
-    width: 60vw;
+    width: 85vw;
     height: 75px;
     line-height: 75px;
     padding: 5px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 150px;
+    padding-right: 150px;
     z-index: 1;
-    /* Gradient */
-    background: rgb(25, 25, 25);
-    background: linear-gradient(90deg, rgba(25, 25, 25, 1) 0%, rgba(13, 13, 13, 1) 73%, rgba(8, 8, 8, 1) 100%);
+    /* Gradient 
+    background: linear-gradient(90deg, rgba(25, 25, 25, 0.5) 0%, rgba(13, 13, 13, 0.5) 73%, rgba(8, 8, 8, 0.5) 100%);
+    */
     /* Fit contents to width */
     display: -webkit-box;
     display: -webkit-flex;
@@ -40,7 +44,7 @@ a:-webkit-any-link {
 }
 
 .navbar-item:hover,
-.navbar-item:active {
+.navbar-active-item {
     text-decoration: underline;
     text-underline-offset: 30px;
     text-decoration-thickness: 3px;

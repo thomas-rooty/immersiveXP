@@ -49,6 +49,15 @@ const Loader = () => {
   )
 }
 
+/* Function that set the button with id planetName the class "navbar-item:active"*/
+const setActivePlanet = (planetName) => {
+  var items = document.getElementsByClassName("navbar-item");
+  for (var i = 0; i < items.length; i++) {
+    items[i].classList.remove("navbar-active-item");
+  }
+  document.getElementById(planetName).classList.add("navbar-active-item");
+}
+
 // Initialize the app
 export default function App() {
   // Use and handle planets changes
@@ -56,6 +65,7 @@ export default function App() {
   const handleChangePlanet = (planetName) => {
     setPlanet(undefined);
     setPlanet(planetName);
+    setActivePlanet(planetName);
   }
 
   return (

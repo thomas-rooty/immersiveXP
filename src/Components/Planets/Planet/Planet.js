@@ -16,6 +16,7 @@ const Planet = (props) => {
     //Get textures from their types
     const planetTex = (type) => `./planet/${props.value.planet}/${props.value.planet}_${type}.jpg`;
     const moonTex = (type) => `./moon/moon_${type}.jpg`;
+    const ringTex = (type) => `./planet/saturn/ring_${type}_Radial.png`;
 
     //Get planet textures and clouds texture
     const [
@@ -23,13 +24,15 @@ const Planet = (props) => {
         planetDisplacement,
         planetNormal,
         moonColor,
-        moonDisplacement
+        moonDisplacement,
+        ringColor
     ] = useLoader(TextureLoader, [
         planetTex("Color"),
         planetTex("Displacement"),
         planetTex("Normal"),
         moonTex("Color"),
         moonTex("Displacement"),
+        ringTex("Color")
     ]);
     const [
         cloudMap
@@ -69,6 +72,7 @@ const Planet = (props) => {
         if (props.value.planet === "saturn") {
             Clouds.current.visible = false;
             SaturnRing.current.visible = true;
+            SaturnRing.current.rotation.x = 1.55;
         } else {
             SaturnRing.current.visible = false;
         }
@@ -92,9 +96,9 @@ const Planet = (props) => {
                     </Sphere>
                 </Detailed>
                 <mesh ref={SaturnRing}>
-                    <Ring args={[2.5, 4, 50, 50]} >
+                    <Ring args={[2.5, 3.4, 50, 50]} >
                         <meshStandardMaterial />
-                        <meshBasicMaterial attach="material" map={planetColor} side={DoubleSide} />
+                        <meshBasicMaterial attach="material" map={ringColor} side={DoubleSide} transparent={true} />
                     </Ring>
                 </mesh>
             </mesh>
