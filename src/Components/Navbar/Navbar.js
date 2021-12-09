@@ -6,11 +6,29 @@ import './Navbar.css';
 // Import PlanetContext
 import PlanetContext from '../../Context/PlanetContext';
 
+const toggleNavbar = () => {
+    const navbarElement = document.getElementById('navbar');
+    const navArrow = document.getElementById('navArrow');
+    if (navbarElement.style.display === 'flex') {
+        // The navbar will be hidden
+        navbarElement.style.display = 'none';
+        navArrow.classList.remove('up');
+        navArrow.classList.add('down');
+        navArrow.style.marginTop = '20px';
+    } else {
+        navbarElement.style.display = 'flex';
+        navArrow.classList.remove('down');
+        navArrow.classList.add('up');
+        navArrow.style.marginTop = '40px';
+    }
+}
+
 const Navbar = () => {
     const contextNavbar = useContext(PlanetContext);
     return (
         <div className="navbar-container">
-            <nav className="navbar">
+            <i id="navArrow" className="arrow down" onClick={() => toggleNavbar()}></i>
+            <nav id="navbar">
                 <button id="mercury" className="navbar-item" onClick={() => contextNavbar.handleChangePlanet('mercury')}><span className="nav-Font">Mercury</span></button>
                 <button id="venus" className="navbar-item" onClick={() => contextNavbar.handleChangePlanet('venus')}><span className="nav-Font">Venus</span></button>
                 <button id="earth" className="navbar-item navbar-active-item" onClick={() => contextNavbar.handleChangePlanet('earth')}><span className="nav-Font">Earth</span></button>
