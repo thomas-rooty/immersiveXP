@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocessing'
+import { EffectComposer, Bloom, Noise } from '@react-three/postprocessing'
 import { KernelSize, BlendFunction } from 'postprocessing'
 import { ContactShadows } from '@react-three/drei'
 

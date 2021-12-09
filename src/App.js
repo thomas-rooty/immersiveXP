@@ -15,7 +15,6 @@ import Effects from './Components/Effects/Effects';
 // Import UI components
 import Navbar from './Components/Navbar/Navbar';
 
-
 //Controls component that will be used in the scene to control the camera and the scene
 extend({ OrbitControls })
 const Controls = () => {
