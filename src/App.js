@@ -27,7 +27,7 @@ const Controls = () => {
     args={[camera, gl.domElement]}
     enableDamping
     enablePan={false}
-    maxPolarAngle={2}l
+    maxPolarAngle={2} l
     minPolarAngle={0.8}
     dampingFactor={0.1}
     rotateSpeed={0.6}
@@ -43,8 +43,22 @@ const Loader = () => {
   const { progress } = useProgress()
   return (
     <Html center>
-      <span style={{ color: 'white' }}>{progress} % loaded</span>
+      <span style={{ color: 'white' }}>Loading {progress}%</span>
     </Html>
+  )
+}
+/* Start Button that overlays the whole app */
+const StartButton = () => {
+  //Clicked on ENTER
+  const showWebsite = () => {
+    document.getElementById("start-button").style.display = "none";
+    document.getElementsByClassName("App")[0].classList.remove("hidden");
+    document.getElementsByClassName("navbar-container")[0].classList.remove("hidden");
+  }
+  return (
+    <div className="button-container">
+      <button id="start-button" onClick={() => showWebsite()}>&nbsp;ENTER</button>
+    </div>
   )
 }
 
@@ -71,7 +85,8 @@ export default function App() {
     <>
       <PlanetContext.Provider value={{ handleChangePlanet, planet }}>
         <Navbar />
-        <div className="App">
+        <StartButton />
+        <div className="App hidden">
           <Canvas mode="concurrent" performance={{ min: 0.5 }} gl={{ antialias: false }}>
 
             {/*Loading screen*/}

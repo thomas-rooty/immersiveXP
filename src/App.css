@@ -5,6 +5,10 @@
     width: 100vw;
 }
 
+.hidden {
+  opacity: 0;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -18,11 +22,37 @@ p {
 }
 
 .moonTxt {
-  margin-top: 30px;
-  margin-left: 80px;
+    margin-top: 30px;
+    margin-left: 80px;
 }
 
 .earthTxt {
-  margin-top: 90px;
-  margin-left: 190px;
+    margin-top: 90px;
+    margin-left: 190px;
+}
+
+.button-container {
+  position: absolute;
+  width: 100vw;  
+  height: 100vh;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+}
+
+#start-button {
+    display: block;
+    font-size: 15px;
+    border: 1px solid white;
+    color: white;
+    background-color: black;
+    padding: 15px 35px;
+    letter-spacing: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#start-button:hover {
+  font-weight: bold;
+  border: 2px solid white;
 }

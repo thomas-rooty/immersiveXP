@@ -26,7 +26,7 @@ const toggleNavbar = () => {
 const Navbar = () => {
     const contextNavbar = useContext(PlanetContext);
     return (
-        <div className="navbar-container">
+        <div className="navbar-container hidden">
             <i id="navArrow" className="arrow down" onClick={() => toggleNavbar()}></i>
             <nav id="navbar">
                 <button id="mercury" className="navbar-item" onClick={() => contextNavbar.handleChangePlanet('mercury')}><span className="nav-Font">Mercury</span></button>

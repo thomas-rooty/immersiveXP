@@ -11,6 +11,10 @@
     justify-content: center;
 }
 
+.hidden {
+    display: none;
+}
+
 #navbar {
     position: fixed;
     top: 45px;
