@@ -43,6 +43,7 @@ const Planet = (props) => {
         //Set the time
         const ySpeed = (clock.getElapsedTime()) / 25;
         const xSpeed = (clock.getElapsedTime()) / 100;
+
         //Make the moon rotate on itself
         Moon.current.rotation.z = xSpeed;
         Moon.current.rotation.y = ySpeed;
@@ -127,9 +128,8 @@ const Planet = (props) => {
                     </Detailed>
                 </mesh>
             </mesh>
-
         </>
-    );
+    )
 }
 
 export default Planet;
