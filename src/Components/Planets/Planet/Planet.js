@@ -82,14 +82,14 @@ const Planet = (props) => {
     return (
         <>
             <ambientLight intensity={0.01} />
-            <pointLight position={[10, 10, 0]} intensity={0.5} />
-            <pointLight position={[15, 15, 0]} intensity={0.25} />
-            <pointLight position={[25, 10, 0]} intensity={0.25} />
+            <pointLight castShadow position={[10, 10, 0]} intensity={0.25} />
+            <pointLight castShadow position={[15, 15, 0]} intensity={0.25} />
+            <pointLight castShadow position={[25, 10, 0]} intensity={0.25} />
             
 
             <mesh ref={Planet}>
                 <Detailed distances={[0, 25, 150]}>
-                    <Sphere args={[1.8, 50, 50]} >
+                    <Sphere args={[1.8, 150, 150]} >
                         <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
                     </Sphere>
                     <Sphere args={[1.8, 6, 6]} >
