@@ -79,42 +79,53 @@ const Planet = (props) => {
         }
     });
 
-    return (
-        <>
-            <ambientLight intensity={0.01} />
-            <pointLight castShadow position={[10, 10, 0]} intensity={0.25} />
-            <pointLight castShadow position={[15, 15, 0]} intensity={0.25} />
-            <pointLight castShadow position={[25, 10, 0]} intensity={0.25} />
-            
+    // Lights
+    const Lights = () => {
+        return (
+            <>
+                <ambientLight intensity={0.01} />
+                <rectAreaLight intensity={2} position={[20, 0, 20]} width={20} height={50000} />
+            </>
+        );
+    }
 
-            <mesh ref={Planet}>
-                <Detailed distances={[0, 25, 150]}>
-                    <Sphere args={[1.8, 150, 150]} >
-                        <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
-                    </Sphere>
-                    <Sphere args={[1.8, 6, 6]} >
-                        <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
-                    </Sphere>
-                    <Sphere args={[1.8, 1, 1]} >
-                        <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
-                    </Sphere>
-                </Detailed>
-                <mesh ref={SaturnRing}>
-                    <Ring args={[2.5, 3.4, 50, 50]} >
-                        <meshStandardMaterial />
-                        <meshBasicMaterial attach="material" map={ringColor} side={DoubleSide} transparent={true} />
-                    </Ring>
+    // Planet
+    const PlanetObject = () => {
+        return (
+            <>
+                <mesh ref={Planet}>
+                    <Detailed distances={[0, 25, 150]}>
+                        <Sphere args={[1.8, 150, 150]} >
+                            <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
+                        </Sphere>
+                        <Sphere args={[1.8, 6, 6]} >
+                            <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
+                        </Sphere>
+                        <Sphere args={[1.8, 1, 1]} >
+                            <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
+                        </Sphere>
+                    </Detailed>
+                    <mesh ref={SaturnRing}>
+                        <Ring args={[2.5, 3.4, 50, 50]} >
+                            <meshStandardMaterial />
+                            <meshBasicMaterial attach="material" map={ringColor} side={DoubleSide} transparent={true} />
+                        </Ring>
+                    </mesh>
                 </mesh>
-            </mesh>
+                <mesh ref={Clouds}>
+                    <Sphere args={[1.82, 100, 100]} >
+                        <meshStandardMaterial
+                            map={cloudMap} transparent={true} opacity={0.5}
+                        />
+                    </Sphere>
+                </mesh>
+            </>
+        );
+    }
 
-            <mesh ref={Clouds}>
-                <Sphere args={[1.82, 100, 100]} >
-                    <meshStandardMaterial
-                        map={cloudMap} transparent={true} opacity={0.5}
-                    />
-                </Sphere>
-            </mesh>
-
+    // Moon
+    const MoonObject = () => {
+        return (
             <mesh ref={MoonPivotPoint}>
                 <boxGeometry args={[0, 0, 0]} />
                 <mesh ref={Moon} position={[7, 0.2, 0]}>
@@ -131,8 +142,16 @@ const Planet = (props) => {
                     </Detailed>
                 </mesh>
             </mesh>
+        );
+    }
+
+    return (
+        <>
+            <Lights />
+            <PlanetObject />
+            <MoonObject />
         </>
-    )
+    );
 }
 
 export default Planet;
