@@ -81,19 +81,22 @@ const Planet = (props) => {
 
     return (
         <>
-            <ambientLight intensity={0.3} />
-            <directionalLight position={[20, 15, 0]} intensity={1.2} />
+            <ambientLight intensity={0.01} />
+            <pointLight position={[10, 10, 0]} intensity={0.5} />
+            <pointLight position={[15, 15, 0]} intensity={0.25} />
+            <pointLight position={[25, 10, 0]} intensity={0.25} />
+            
 
             <mesh ref={Planet}>
                 <Detailed distances={[0, 25, 150]}>
                     <Sphere args={[1.8, 50, 50]} >
-                        <meshStandardMaterial displacementScale={0.04} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
+                        <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
                     </Sphere>
                     <Sphere args={[1.8, 6, 6]} >
-                        <meshStandardMaterial displacementScale={0.04} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
+                        <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
                     </Sphere>
                     <Sphere args={[1.8, 1, 1]} >
-                        <meshStandardMaterial displacementScale={0.04} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
+                        <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
                     </Sphere>
                 </Detailed>
                 <mesh ref={SaturnRing}>
@@ -107,7 +110,7 @@ const Planet = (props) => {
             <mesh ref={Clouds}>
                 <Sphere args={[1.82, 100, 100]} >
                     <meshStandardMaterial
-                        map={cloudMap} transparent={true} opacity={1}
+                        map={cloudMap} transparent={true} opacity={0.5}
                     />
                 </Sphere>
             </mesh>
@@ -117,13 +120,13 @@ const Planet = (props) => {
                 <mesh ref={Moon} position={[7, 0.2, 0]}>
                     <Detailed distances={[0, 25, 150]}>
                         <Sphere args={[0.45, 50, 50]} >
-                            <meshStandardMaterial displacementScale={0.05} map={moonColor} displacementMap={moonDisplacement} />
+                            <meshStandardMaterial displacementScale={0.02} map={moonColor} displacementMap={moonDisplacement} />
                         </Sphere>
                         <Sphere args={[0.45, 6, 6]} >
-                            <meshStandardMaterial displacementScale={0.05} map={moonColor} displacementMap={moonDisplacement} />
+                            <meshStandardMaterial displacementScale={0.02} map={moonColor} displacementMap={moonDisplacement} />
                         </Sphere>
                         <Sphere args={[0.45, 1, 1]} >
-                            <meshStandardMaterial displacementScale={0.05} map={moonColor} displacementMap={moonDisplacement} />
+                            <meshStandardMaterial displacementScale={0.02} map={moonColor} displacementMap={moonDisplacement} />
                         </Sphere>
                     </Detailed>
                 </mesh>
