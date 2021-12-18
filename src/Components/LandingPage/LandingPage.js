@@ -1,8 +1,6 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { Html } from "@react-three/drei"; //Fiber React component for the Planet's atmosphere
 import "./LandingPage.css";
-
-import Particles from "react-tsparticles";
 
 const LandingPage = () => {
     // Add click event listener to the button to hide the landing page
@@ -11,12 +9,11 @@ const LandingPage = () => {
         const navbar = document.getElementsByClassName("navbar-container")[0];
         landingPage.classList.add("hide");
         navbar.classList.add("shown");
-        // Play bg audio and click for this button
-        playSound('/sound/bg.mp3', true, 0.2);
-        playSound('/sound/click.mp3', false, 0.8);
 
-        // Init click sound effect
+        // Play the audios
         initClickSound();
+        toggleAudio();
+
         setTimeout(() => {
             landingPage.remove();
         }, 4000);
@@ -34,7 +31,7 @@ const LandingPage = () => {
         }
         let upListener = (e) => {
             if (!moved) {
-                playSound('/sound/click.mp3', false, 0.8);
+                playSound('/sound/click.mp3', 0.8);
             }
         }
         document.addEventListener('mousedown', downListener);
@@ -43,33 +40,38 @@ const LandingPage = () => {
     }
 
     // Play sound when the button is clicked
-    const playSound = (mp3, looping, volume) => {
+    const playSound = (mp3, volume) => {
         let audio = new Audio(mp3);
-        // Audio settings (lowering volume, looping)
+        // Audio settings (lowering volume)
         audio.volume = volume;
-        audio.loop = looping;
-
         audio.play();
     }
 
-
-    const particlesInit = (main) => {
-        console.log(main);
-        // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
-    };
-
-    const particlesLoaded = (container) => {
-        console.log(container);
-    };
+    // Play bg.mp3 and manage a toggle button for play and pause
+    let [audioStatus, setAudioStatus] = useState('paused');
+    const toggleAudio = () => {
+        let audioController = document.getElementsByTagName("audio")[0];
+        if (audioStatus === 'paused') {
+            audioStatus = 'playing';
+            audioController.play();
+            audioController.volume = 0.2;
+        } else {
+            audioStatus = 'paused';
+            audioController.pause();
+        }
+        setAudioStatus(audioStatus);
+    }
 
     return (
-        <>
-            <Html>
-                <div className="landingPage">
-                    <button onClick={hideLandingPage} className="landingPage_button">&nbsp;ENTER</button>
-                </div>
-            </Html>
-        </>
+        <Html>
+            <div className="landingPage">
+                <button onClick={hideLandingPage} className="landingPage_button">&nbsp;ENTER</button>
+            </div>
+            <div className="sound-player-container">
+                <img onClick={toggleAudio} src={`/icons/bg-${audioStatus}.gif`} alt='sound-icon' className="sound-icon"></img>
+                <audio loop src="/sound/bg.mp3"></audio>
+            </div>
+        </Html>
     );
 }
 

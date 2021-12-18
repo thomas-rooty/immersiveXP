@@ -89,7 +89,7 @@ a:-webkit-any-link {
 
 .navbar-item:hover,
 .navbar-active-item {
-    cursor: pointer;
+    cursor: crosshair;
     border-bottom: 3px solid white;
     transform: scale(1.1);
 }
