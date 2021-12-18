@@ -75,7 +75,7 @@ export default function App() {
       <PlanetContext.Provider value={{ handleChangePlanet, planet }}>
         <Navbar />
         <div className="App">
-          <Canvas mode="concurrent" performance={{ min: 0.5 }} gl={{ antialias: false }}>
+          <Canvas mode="concurrent" gl={{ antialias: false }}>
 
             {/*Loading screen*/}
             <Suspense fallback={<LoadingPage />}>
