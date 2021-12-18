@@ -54,10 +54,12 @@ const LoadingPage = () => {
 /* Function that set the button with id planetName the class "navbar-item:active"*/
 const setActivePlanet = (planetName) => {
   var items = document.getElementsByClassName("navbar-item");
+  var navbar = document.getElementById("navbar");
   for (var i = 0; i < items.length; i++) {
     items[i].classList.remove("navbar-active-item");
   }
   document.getElementById(planetName).classList.add("navbar-active-item");
+  navbar.style.display = "none";
 }
 
 // Initialize the app

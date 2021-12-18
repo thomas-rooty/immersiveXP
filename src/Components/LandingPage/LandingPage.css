@@ -18,6 +18,7 @@
     top: -50vh;
     left: -50vw;
     z-index: 1000;
+    pointer-events: none;
 }
 
 @keyframes fadeOut {
@@ -43,6 +44,7 @@
     color: white;
     font-family: 'Kiona';
     font-weight: normal;
+    pointer-events: all;
 }
 
 .landingPage_button:hover {
