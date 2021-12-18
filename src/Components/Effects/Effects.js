@@ -8,7 +8,7 @@ const Effects = () => {
     return (
         <EffectComposer>
             <Bloom intensity={1} luminanceThreshold={0} luminanceSmoothing={0.7} height={900} kernelSize={KernelSize.LARGE} />
-            <Vignette eskil={false} offset={0.05} darkness={1.2} />
+            <Vignette eskil={false} offset={0.6} darkness={1} />
             <Noise premultiply blendFunction={BlendFunction.ADD} />
         </EffectComposer>
     )

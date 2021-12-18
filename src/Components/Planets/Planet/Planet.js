@@ -96,13 +96,13 @@ const Planet = (props) => {
                 <mesh ref={Planet}>
                     <Detailed distances={[0, 25, 150]}>
                         <Sphere args={[1.8, 150, 150]} >
-                            <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
+                            <meshStandardMaterial displacementScale={0.05} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
                         </Sphere>
                         <Sphere args={[1.8, 6, 6]} >
-                            <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
+                            <meshStandardMaterial displacementScale={0.05} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
                         </Sphere>
                         <Sphere args={[1.8, 1, 1]} >
-                            <meshStandardMaterial displacementScale={0.08} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
+                            <meshStandardMaterial displacementScale={0.05} map={planetColor} displacementMap={planetDisplacement} normalMap={planetNormal} />
                         </Sphere>
                     </Detailed>
                     <mesh ref={SaturnRing}>

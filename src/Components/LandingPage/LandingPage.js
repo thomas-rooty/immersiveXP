@@ -10,7 +10,7 @@ const LandingPage = () => {
         const landingPage = document.getElementsByClassName("landingPage")[0];
         const navbar = document.getElementsByClassName("navbar-container")[0];
         landingPage.classList.add("hide");
-        navbar.classList.remove("hidden");
+        navbar.classList.add("shown");
         setTimeout(() => {
             landingPage.remove();
         }, 4000);

@@ -23,21 +23,23 @@ const Controls = () => {
   //Configure camera and controls (see orbitControls docs for more info)
   const controls = useRef();
   const { camera, gl } = useThree();
+  //Set the camera position and the camera target
+  camera.position.set(-2, 0, 4);
   useFrame(() => controls.current.update());
   return <orbitControls
     ref={controls}
     args={[camera, gl.domElement]}
     enableDamping
     enablePan={false}
-    maxPolarAngle={2} l
+    maxPolarAngle={2}
     minPolarAngle={0.8}
     dampingFactor={0.1}
     rotateSpeed={0.6}
     enableZoom={true}
-    minDistance={5}
+    minDistance={4}
     maxDistance={300}
-    autoRotate={true}
-    autoRotateSpeed={0.2} />
+    autoRotate={false}
+    autoRotateSpeed={0.05} />
 }
 
 /* Loader that hangs the scene while objects aren't ready */
@@ -54,12 +56,10 @@ const LoadingPage = () => {
 /* Function that set the button with id planetName the class "navbar-item:active"*/
 const setActivePlanet = (planetName) => {
   var items = document.getElementsByClassName("navbar-item");
-  var navbar = document.getElementById("navbar");
   for (var i = 0; i < items.length; i++) {
     items[i].classList.remove("navbar-active-item");
   }
   document.getElementById(planetName).classList.add("navbar-active-item");
-  navbar.style.display = "none";
 }
 
 // Initialize the app
