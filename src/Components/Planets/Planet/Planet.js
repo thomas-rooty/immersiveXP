@@ -4,6 +4,9 @@ import { DoubleSide } from 'three';
 import { Detailed, Sphere, Ring, Html } from "@react-three/drei"; //Drei component 
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 
+// Import styles
+import './Planet.css';
+
 
 const Planet = (props) => {
     //Set the refs for the Planet and Moon
@@ -108,7 +111,7 @@ const Planet = (props) => {
                     <mesh ref={SaturnRing}>
                         <Ring args={[2.5, 3.4, 50, 50]} >
                             <meshStandardMaterial />
-                            <meshBasicMaterial attach="material" map={ringColor} side={DoubleSide} transparent={true} />
+                            <meshBasicMaterial attach="material" map={ringColor} side={DoubleSide} transparent={true} opacity={0.5} />
                         </Ring>
                     </mesh>
                 </mesh>
@@ -116,8 +119,8 @@ const Planet = (props) => {
                     <Sphere args={[1.82, 100, 100]} >
                         <meshStandardMaterial map={cloudMap} transparent={true} opacity={0.5} />
                     </Sphere>
-                    <Html prepend position={[0, -1.5, 1.5]} transform sprite>
-                        <p className='planetDesc'>earth</p>
+                    <Html prepend zIndexRange={[100, 0]} position={[0, -1.5, 1.5]} transform sprite>
+                        <p className='planetDesc'>{props.value.planet}</p>
                     </Html>
                 </mesh>
             </>
@@ -133,6 +136,9 @@ const Planet = (props) => {
                     <Detailed distances={[0, 25, 150]}>
                         <Sphere args={[0.45, 50, 50]} >
                             <meshStandardMaterial displacementScale={0.02} map={moonColor} displacementMap={moonDisplacement} />
+                            <Html prepend zIndexRange={[100, 0]} position={[0, 0.5, 0.5]} transform sprite>
+                                {props.value.planet === "earth" && <p className='planetDesc'>MOON</p>}
+                            </Html>
                         </Sphere>
                         <Sphere args={[0.45, 6, 6]} >
                             <meshStandardMaterial displacementScale={0.02} map={moonColor} displacementMap={moonDisplacement} />

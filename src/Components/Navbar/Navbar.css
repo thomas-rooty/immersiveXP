@@ -49,7 +49,7 @@
 #navbar {
     position: fixed;
     top: 30px;
-    width: 60vw;
+    width: 56vw;
     height: 75px;
     line-height: 75px;
     padding: 5px;
@@ -71,7 +71,7 @@
 hr {
     position: absolute;
     top: 63px;
-    width: 26vw;
+    width: 30vw;
     left: 6vw;
     z-index: 2;
     border-color: rgb(90, 90, 90);

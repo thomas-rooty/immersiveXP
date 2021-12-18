@@ -11,9 +11,21 @@ const LandingPage = () => {
         const navbar = document.getElementsByClassName("navbar-container")[0];
         landingPage.classList.add("hide");
         navbar.classList.add("shown");
+        // Play bg audio
+        playSound('/sound/bg.mp3');
         setTimeout(() => {
             landingPage.remove();
         }, 4000);
+    }
+
+    // Play sound when the button is clicked
+    const playSound = (mp3) => {
+        let audio = new Audio(mp3);
+        // Audio settings (lowering volume, looping)
+        audio.volume = 0.2;
+        audio.loop = true;
+        
+        audio.play();
     }
 
     const particlesInit = (main) => {

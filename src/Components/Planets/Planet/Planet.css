@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'BebasNeue-Light';
+    src: url('../../../Fonts/BebasNeue-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.planetDesc {
+    font-family: 'BebasNeue-Light';
+    font-size: 6px;
+    color: #fff;
+    transition: all .2s ease-in-out;
+}
+
+.planetDesc:hover {
+    transform: scale(1.4);
+    cursor: default;
+}
