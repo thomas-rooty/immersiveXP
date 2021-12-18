@@ -1,7 +1,7 @@
 import { React, useRef } from 'react'
 import { useLoader, useFrame } from "@react-three/fiber"; //Fiber React component for the Planet's atmosphere
 import { DoubleSide } from 'three';
-import { Detailed, Sphere, Ring } from "@react-three/drei"; //Drei component 
+import { Detailed, Sphere, Ring, Html } from "@react-three/drei"; //Drei component 
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 
 
@@ -114,10 +114,11 @@ const Planet = (props) => {
                 </mesh>
                 <mesh ref={Clouds}>
                     <Sphere args={[1.82, 100, 100]} >
-                        <meshStandardMaterial
-                            map={cloudMap} transparent={true} opacity={0.5}
-                        />
+                        <meshStandardMaterial map={cloudMap} transparent={true} opacity={0.5} />
                     </Sphere>
+                    <Html prepend position={[0, -1.5, 1.5]} transform sprite>
+                        <p className='planetDesc'>earth</p>
+                    </Html>
                 </mesh>
             </>
         );

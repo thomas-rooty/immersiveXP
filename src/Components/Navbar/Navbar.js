@@ -18,7 +18,7 @@ const Navbar = () => {
             <hr/>
             <nav id="navbar">
                 <button id="mercury" className="navbar-item" onClick={() => contextNavbar.handleChangePlanet('mercury')}>
-                    <span className="nav-Font"><span className="heavy">00</span> mercury</span>
+                    <span className="nav-Font"><span className="heavy">00</span> Mercury</span>
                 </button>
                 <button id="venus" className="navbar-item" onClick={() => contextNavbar.handleChangePlanet('venus')}>
                     <span className="nav-Font"><span className="heavy">01</span> Venus</span>
@@ -26,8 +26,8 @@ const Navbar = () => {
                 <button id="earth" className="navbar-item navbar-active-item" onClick={() => contextNavbar.handleChangePlanet('earth')}>
                     <span className="nav-Font"><span className="heavy">02</span> Earth</span>
                 </button>
-                <button id="mars" className="navbar-item" onClick={() => contextNavbar.handleChangePlanet('mars')}><span className="nav-Font">
-                    <span className="heavy">03</span> Mars</span>
+                <button id="mars" className="navbar-item" onClick={() => contextNavbar.handleChangePlanet('mars')}>
+                    <span className="nav-Font"><span className="heavy">03</span> Mars</span>
                 </button>
                 <button id="jupiter" className="navbar-item" onClick={() => contextNavbar.handleChangePlanet('jupiter')}>
                     <span className="nav-Font"><span className="heavy">04</span> Jupiter</span>
