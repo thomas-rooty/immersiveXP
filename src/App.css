@@ -2,7 +2,7 @@
     font-family: sans-serif;
     text-align: center;
     height: 100vh;
-    width: 65vw;
+    width: 55vw;
 }
 
 body {
@@ -10,6 +10,7 @@ body {
     margin: 0;
     background: black;
     color: white;
+    overflow: hidden;
 }
 
 p {
@@ -45,5 +46,9 @@ p {
     .App {
         width: 100vw;
         height: 100vh;
+    }
+
+    .loading {
+        left: -22vw;
     }
 }

@@ -57,7 +57,7 @@
 .sound-player-container {
     position: absolute;
     bottom: -48vh;
-    left: -30vw;
+    left: -25vw;
 }
 
 .sound-icon {
@@ -76,8 +76,11 @@
 }
 
 @media screen and (max-width: 1220px) {
+    .landingPage {
+        left: -66vw;
+    }
     .sound-player-container {
         bottom: -48vh;
-        left: -48vw;
+        right: -110vw;
     }
 }

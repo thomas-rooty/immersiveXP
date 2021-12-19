@@ -154,7 +154,12 @@ a:-webkit-any-link {
     }
 
     .navbar-item {
-        width: 100px;
+        width: 120px;
+    }
+
+    .starburst {
+        top: 15px;
+        left: 5px;
     }
 
     hr {

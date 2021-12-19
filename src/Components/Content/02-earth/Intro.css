@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Cinzel';
+    src: url('../../../Fonts/Cinzel-Regular.woff2') format('woff2'), url('../../../Fonts/Cinzel-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('../../../Fonts/BebasNeue-Regular.woff') format('woff'), url('../../../Fonts/BebasNeue-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BebasNeue-Light';
+    src: url('../../../Fonts/BebasNeue-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.intro {
+    position: absolute;
+    width: 45vw;
+    height: 75vh;
+    top: 0;
+    right: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgb(2, 2, 2) 100%);
+    padding-top: 25vh;
+    justify-content: left;
+    text-align: left;
+}
+
+.project-overview {
+    background-color: red;
+    width: 25vw;
+    height: 50px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.project-overview > li {
+    font-family: 'BebasNeue-Light';
+}
+
+li:nth-child(1) {
+    margin-left: 0;
+}
+
+/* Responsive for smaller screens */
+
+@media screen and (max-width: 1220px) {
+    .intro {
+        width: 90vw;
+        height: 90vh;
+        top: 100vh;
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgb(2, 2, 2) 100%);
+    }
+}

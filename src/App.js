@@ -17,6 +17,9 @@ import Effects from './Components/Effects/Effects';
 import Navbar from './Components/Navbar/Navbar';
 import LandingPage from './Components/LandingPage/LandingPage';
 
+// Import content
+import Intro from './Components/Content/02-earth/Intro';
+
 //Controls component that will be used in the scene to control the camera and the scene
 extend({ OrbitControls })
 const Controls = () => {
@@ -92,6 +95,8 @@ export default function App() {
             <Controls />
           </Canvas>
         </div>
+        {/* Content */}
+        <Intro />
       </PlanetContext.Provider >
     </>
   );
