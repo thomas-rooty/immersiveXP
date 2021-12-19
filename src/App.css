@@ -39,3 +39,11 @@ p {
     background: #000;
     z-index: 9999;
 }
+
+/* Mobile display */
+@media screen and (max-width: 1220px) {
+    .App {
+        width: 100vw;
+        height: 100vh;
+    }
+}

@@ -6,8 +6,16 @@ import './Navbar.css';
 // Import PlanetContext
 import PlanetContext from '../../Context/PlanetContext';
 
+// Toggle Navbar if mobile
 const toggleNavbar = () => {
-    const navbarElement = document.getElementById('navbar'); // Contains all the planets
+    // Get width of window
+    const width = window.innerWidth;
+    if (width < 1220) {
+        const navbar = document.getElementById('navbar');
+        console.log("toggleNavbar");
+        // If navbar is hidden, show it
+        navbar.classList.toggle('shown-nav');
+    }
 }
 
 const Navbar = () => {
@@ -15,7 +23,7 @@ const Navbar = () => {
     return (
         <div className="navbar-container">
             <img src='/icons/starburst-icon.png' alt='starburst-icon' id="navStarBurst" className="starburst" onClick={() => toggleNavbar()}></img>
-            <hr/>
+            <hr />
             <nav id="navbar">
                 <button id="mercury" className="navbar-item" onClick={() => contextNavbar.handleChangePlanet('mercury')}>
                     <span className="nav-Font"><span className="heavy">00</span> Mercury</span>

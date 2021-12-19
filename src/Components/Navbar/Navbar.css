@@ -37,12 +37,27 @@
     animation-fill-mode: forwards;
 }
 
+.shown-nav {
+    display: flex!important;
+    animation: fadeIn 1s!important;
+    animation-fill-mode: forwards!important;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -108,7 +123,7 @@ a:-webkit-any-link {
 
 .starburst {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     top: 50px;
     left: 50px;
     width: 45px;
@@ -122,14 +137,27 @@ a:-webkit-any-link {
 
 /* Responsive for smaller screens */
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1220px) {
     #navbar {
         display: none;
-        padding-top: 5vh;
         flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.75);
         height: 85vh;
-        width: 600px;
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 35%, rgba(0, 0, 0, 0.75) 65%, rgba(0, 0, 0, 0) 100%);
+        width: 100vw;
+        padding: 0;
+        top: 70px;
+        align-items: center;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.75) 35%, rgba(0, 0, 0, 0.75) 65%, rgba(0, 0, 0, 0.3) 100%);
+    }
+
+    .navbar-container {
+        justify-content: center;
+    }
+
+    .navbar-item {
+        width: 100px;
+    }
+
+    hr {
+        display: none;
     }
 }
