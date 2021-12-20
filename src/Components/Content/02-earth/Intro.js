@@ -14,6 +14,7 @@ const Intro = (props) => {
 
     return (
         <div className="intro">
+            <div className='header-fadeOut'></div>
             <ul className='project-overview'>
                 <li onClick={setActiveProject} className='active-project' >Project 1</li>
                 <li onClick={setActiveProject} >Project 2</li>
