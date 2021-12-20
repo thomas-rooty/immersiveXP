@@ -23,7 +23,7 @@
 }
 
 .navbar-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100vw;
     z-index: 1;
@@ -83,7 +83,7 @@
     -ms-flex-pack: justify;
 }
 
-hr {
+.hr-navbar {
     position: absolute;
     top: 63px;
     width: 30vw;
@@ -111,7 +111,7 @@ a:-webkit-any-link {
 
 .nav-Font {
     color: rgb(238, 238, 238);
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'BebasNeue-Light';
 }
 
@@ -162,7 +162,7 @@ a:-webkit-any-link {
         left: 5px;
     }
 
-    hr {
+    .hr-navbar {
         display: none;
     }
 }

@@ -23,7 +23,7 @@ const Navbar = () => {
     return (
         <div className="navbar-container">
             <img src='/icons/starburst-icon.png' alt='starburst-icon' id="navStarBurst" className="starburst" onClick={() => toggleNavbar()}></img>
-            <hr />
+            <hr className='hr-navbar' />
             <nav id="navbar">
                 <button id="mercury" className="navbar-item" onClick={() => contextNavbar.handleChangePlanet('mercury')}>
                     <span className="nav-Font"><span className="heavy">00</span> Mercury</span>

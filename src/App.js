@@ -96,7 +96,7 @@ export default function App() {
           </Canvas>
         </div>
         {/* Content */}
-        <Intro />
+        <Intro value={{planet}} />
       </PlanetContext.Provider >
     </>
   );

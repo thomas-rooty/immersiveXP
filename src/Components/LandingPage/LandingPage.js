@@ -7,8 +7,10 @@ const LandingPage = () => {
     const hideLandingPage = () => {
         const landingPage = document.getElementsByClassName("landingPage")[0];
         const navbar = document.getElementsByClassName("navbar-container")[0];
+        const content = document.getElementsByClassName("intro")[0];
         landingPage.classList.add("hide");
         navbar.classList.add("shown");
+        content.classList.add("shown");
 
         // Play the audios
         initClickSound();

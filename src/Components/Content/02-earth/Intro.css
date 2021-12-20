@@ -22,35 +22,104 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Bricktown';
+    src: url('../../../Fonts/Bricktown.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../../../Fonts/Roboto-Light.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Bolder';
+    src: url('../../../Fonts/Roboto.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .intro {
+    display: block;
     position: absolute;
     width: 45vw;
-    height: 75vh;
+    height: 175vh;
     top: 0;
     right: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgb(2, 2, 2) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgb(2, 2, 2) 100%);
     padding-top: 25vh;
     justify-content: left;
     text-align: left;
+    opacity: 0;
+}
+
+.shown {
+    opacity: 1;
+    animation: fadeIn 10s;
+    animation-fill-mode: forwards;
 }
 
 .project-overview {
-    background-color: red;
-    width: 25vw;
-    height: 50px;
+    width: 20vw;
+    height: 5vh;
     list-style: none;
     display: flex;
     justify-content: space-between;
     padding: 0;
 }
 
-.project-overview > li {
+.project-overview>li {
     font-family: 'BebasNeue-Light';
+    font-size: 18px;
 }
 
-li:nth-child(1) {
-    margin-left: 0;
+.project-overview>li:hover,
+.active-project {
+    cursor: pointer;
+    font-family: 'BebasNeue';
+    border-bottom: 4px solid white;
 }
+
+
+/* Project desc */
+
+.project-description {
+    text-align: left;
+    align-items: left;
+    justify-content: left;
+}
+
+.project-description-title {
+    font-family: 'Bricktown';
+    font-size: 60px;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.project-description-text {
+    font-family: 'Roboto-Light';
+    font-size: 18px;
+    width: 30vw;
+}
+
+.hr-project {
+    width: 30vw;
+    margin: 0;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    border-color: rgb(43, 43, 43);
+}
+
 
 /* Responsive for smaller screens */
 
@@ -59,6 +128,6 @@ li:nth-child(1) {
         width: 90vw;
         height: 90vh;
         top: 100vh;
-        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgb(2, 2, 2) 100%);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgb(2, 2, 2) 100%);
     }
 }

@@ -3,6 +3,7 @@
     text-align: center;
     height: 100vh;
     width: 55vw;
+    position: fixed;
 }
 
 body {
@@ -10,7 +11,7 @@ body {
     margin: 0;
     background: black;
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 p {

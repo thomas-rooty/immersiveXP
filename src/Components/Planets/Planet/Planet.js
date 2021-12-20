@@ -116,11 +116,14 @@ const Planet = (props) => {
                     </mesh>
                 </mesh>
                 <mesh ref={Clouds}>
-                    <Sphere args={[1.82, 100, 100]} >
+                    <Sphere args={[1.81, 100, 100]} >
                         <meshStandardMaterial map={cloudMap} transparent={true} opacity={0.5} />
                     </Sphere>
                     <Html prepend zIndexRange={[100, 0]} position={[0, -1.5, 1.5]} transform sprite>
                         <p className='planetDesc'>{props.value.planet}</p>
+                    </Html>
+                    <Html prepend zIndexRange={[100, 0]} position={[0, 2.2, 0]} transform sprite>
+                        <p className='planetDesc'>PROJECT 1</p>
                     </Html>
                 </mesh>
             </>
