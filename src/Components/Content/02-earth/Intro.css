@@ -78,7 +78,7 @@
 }
 
 .project-overview {
-    width: 20vw;
+    width: fit-content;
     height: 5vh;
     list-style: none;
     display: flex;
@@ -88,7 +88,9 @@
 
 .project-overview>li {
     font-family: 'BebasNeue-Light';
-    font-size: 18px;
+    letter-spacing: 3px;
+    font-size: 20px;
+    margin-right: 3vw;
 }
 
 .project-overview>li:hover,
