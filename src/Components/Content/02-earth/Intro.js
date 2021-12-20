@@ -25,7 +25,8 @@ const Intro = (props) => {
         <div className="intro">
             <div className='header-fadeOut'></div>
             <ul className='project-overview'>
-                <li onClick={setActiveAsset} className='active-project' >MOON</li>
+                <li onClick={setActiveAsset} className='active-project' >EARTH</li>
+                <li onClick={setActiveAsset} >MOON</li>
                 <li onClick={setActiveAsset} >INTERNATIONAL SPACE STATION</li>
             </ul>
 
