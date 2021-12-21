@@ -75,6 +75,13 @@ export default function App() {
     setActivePlanet(planetName);
   }
 
+  //Use and handle section changes
+  const [section, setSection] = useState("who");
+  const handleChangeSection = (sectionName) => {
+    setSection(undefined);
+    setSection(sectionName);
+  }
+
   return (
     <>
       <PlanetContext.Provider value={{ handleChangePlanet, planet }}>
@@ -96,7 +103,7 @@ export default function App() {
           </Canvas>
         </div>
         {/* Content */}
-        <Intro value={{planet}} />
+        <Intro value={{handleChangeSection, section, planet}} />
       </PlanetContext.Provider >
     </>
   );
