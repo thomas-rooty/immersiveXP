@@ -18,7 +18,7 @@ import Navbar from './Components/Navbar/Navbar';
 import LandingPage from './Components/LandingPage/LandingPage';
 
 // Import content
-import Intro from './Components/Content/02-earth/Intro';
+import Intro from './Components/Content/Projects/Intro';
 
 //Controls component that will be used in the scene to control the camera and the scene
 extend({ OrbitControls })
@@ -76,15 +76,15 @@ export default function App() {
   }
 
   //Use and handle section changes
-  const [section, setSection] = useState("who");
-  const handleChangeSection = (sectionName) => {
-    setSection(undefined);
-    setSection(sectionName);
+  const [project, setProject] = useState("who");
+  const handleChangeProject = (projectName) => {
+    setProject(undefined);
+    setProject(projectName);
   }
 
   return (
     <>
-      <PlanetContext.Provider value={{ handleChangePlanet, planet }}>
+      <PlanetContext.Provider value={{ handleChangeProject, project, handleChangePlanet, planet }}>
         <Navbar />
         <div className="App">
           <Canvas mode="concurrent" gl={{ antialias: false }}>
@@ -103,7 +103,7 @@ export default function App() {
           </Canvas>
         </div>
         {/* Content */}
-        <Intro value={{handleChangeSection, section, planet}} />
+        <Intro value={{ handleChangeProject, project, planet }} />
       </PlanetContext.Provider >
     </>
   );

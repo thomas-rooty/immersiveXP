@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: center;
     top: -50vh;
-    left: -50vw;
+    left: -46vw;
     z-index: 1000;
     pointer-events: none;
 }
@@ -48,7 +48,7 @@
 }
 
 .landingPage_button:hover {
-    cursor: crosshair;
+    cursor: pointer;
     border: 0.2rem solid white;
     font-weight: bold;
 }
@@ -72,7 +72,7 @@
 
 .sound-icon:hover {
     transform: scale(1.1);
-    cursor: crosshair;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1220px) {

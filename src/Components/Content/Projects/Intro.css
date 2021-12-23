@@ -53,7 +53,7 @@
     display: block;
     position: absolute;
     width: 45vw;
-    height: 175vh;
+    height: fit-content;
     top: 0;
     right: 0;
     background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(2, 2, 2) 100%);
