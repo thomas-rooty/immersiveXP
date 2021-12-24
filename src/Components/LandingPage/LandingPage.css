@@ -16,8 +16,8 @@
     align-items: center;
     justify-content: center;
     top: -50vh;
-    left: -46vw;
-    z-index: 1000;
+    left: -66vw;
+    z-index: 1001;
     pointer-events: none;
 }
 

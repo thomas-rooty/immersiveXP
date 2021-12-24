@@ -8,6 +8,8 @@ const LandingPage = () => {
         const landingPage = document.getElementsByClassName("landingPage")[0];
         const navbar = document.getElementsByClassName("navbar-container")[0];
         const content = document.getElementsByClassName("intro")[0];
+        const appClass = document.getElementsByClassName("App")[0];
+        appClass.classList.add("App-active");
         landingPage.classList.add("hide");
         navbar.classList.add("shown");
         content.classList.add("shown");

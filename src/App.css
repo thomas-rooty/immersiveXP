@@ -2,8 +2,12 @@
     font-family: sans-serif;
     text-align: center;
     height: 100vh;
-    width: 55vw;
+    width: 100vw;
     position: fixed;
+}
+
+.App-active {
+    width: 55vw!important;
 }
 
 body {
@@ -38,12 +42,18 @@ p {
 
 .loading {
     position: fixed;
-    top: 0;
-    left: 17vw;
-    width: 100%;
-    height: 100%;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    left: -50vw;
+    top: -50vh;
     background: #000;
     z-index: 9999;
+}
+
+.loading-img {
+    width: 200px;
+    margin: auto;
 }
 
 /* Mobile display */
@@ -56,8 +66,13 @@ p {
         height: 100vh;
     }
 
-    .loading {
-        left: -15vw;
-        right: 0;
+    .App-active {
+        width: 100vw!important;
+    }
+
+    .loading-img {
+        width: 200px;
+        display: block;
+        margin: auto;
     }
 }

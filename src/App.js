@@ -50,7 +50,7 @@ const LoadingPage = () => {
   return (
     <Html>
       <div className="loading">
-        <img src={LoadingText} alt="Loading" />
+        <img className="loading-img" src={LoadingText} alt="Loading" />
       </div>
     </Html>
   )
