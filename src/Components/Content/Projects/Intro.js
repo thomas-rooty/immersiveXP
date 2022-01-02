@@ -36,7 +36,7 @@ const Intro = (props) => {
                             I'm Thomas, a young software development and 3D enthusiast, developing my skills through several
                             professional experiences during my internship and other personal projects.<br /><br />
 
-                            Welcome to my <i>space</i>, I'll leave it up to you to discover this virtual wonder</p>
+                            Welcome to my <i>space</i>, I'll leave it up to you to discover this virtual wonder -</p>
                     }
 
                     {props.value.project === "what" &&

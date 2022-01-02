@@ -41,8 +41,8 @@ const Controls = () => {
     enableZoom={true}
     minDistance={4}
     maxDistance={300}
-    autoRotate={false}
-    autoRotateSpeed={0.05} />
+    autoRotate={true}
+    autoRotateSpeed={0.02} />
 }
 
 /* Loader that hangs the scene while objects aren't ready */
@@ -94,6 +94,11 @@ export default function App() {
               <LandingPage />
               <Milkyway />
               <Planet value={{ handleChangePlanet, planet }} />
+              <Stars radius={1} depth={25} count={1250} factor={0.5} saturation={0} fade />
+              <Stars radius={10} depth={50} count={1250} factor={0.5} saturation={0} fade />
+              <Stars radius={25} depth={50} count={1250} factor={0.5} saturation={0} fade />
+              <Stars radius={50} depth={50} count={1250} factor={2} saturation={0} fade />
+              <Stars radius={75} depth={50} count={1250} factor={3} saturation={0} fade />
               <Stars radius={100} depth={50} count={1250} factor={4} saturation={0} fade />
               <Effects />
             </Suspense>
