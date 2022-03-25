@@ -72,8 +72,8 @@ const LandingPage = () => {
                 <button onClick={hideLandingPage} className="landingPage_button">&nbsp;ENTER</button>
             </div>
             <div className="sound-player-container">
-                <img onClick={toggleAudio} src={`/icons/bg-${audioStatus}.gif`} alt='sound-icon' className="sound-icon"></img>
-                <audio loop src="/sound/bg.mp3"></audio>
+                <img onClick={toggleAudio} src={`/icons/bg-${audioStatus}.gif`} alt='sound-icon' className="sound-icon"/>
+                <audio loop src="/sound/bg.mp3"/>
             </div>
         </Html>
     );
