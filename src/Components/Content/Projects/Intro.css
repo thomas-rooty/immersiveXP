@@ -87,7 +87,7 @@
 }
 
 .project-overview>li {
-    font-family: 'BebasNeue-Light';
+    font-family: 'BebasNeue-Light', sans-serif;
     letter-spacing: 3px;
     font-size: 20px;
     margin-right: 3vw;
@@ -96,7 +96,7 @@
 .project-overview>li:hover,
 .active-project {
     cursor: pointer;
-    font-family: 'BebasNeue';
+    font-family: 'BebasNeue', sans-serif;
     border-bottom: 4px solid white;
 }
 
@@ -105,28 +105,38 @@
 
 .project-description {
     text-align: left;
-    align-items: left;
+    align-items: flex-start;
     justify-content: left;
 }
 
 .project-description-title {
-    font-family: 'Bricktown';
+    font-family: 'Bricktown', sans-serif;
     font-size: 60px;
-    margin: 0;
-    margin-bottom: 15px;
+    margin: 0 0 15px;
 }
 
 .project-description-text {
-    font-family: 'Roboto-Light';
+    font-family: 'Roboto-Light', sans-serif;
     font-size: 18px;
     width: 30vw;
 }
 
+.project-description-img {
+    filter: grayscale(100%);
+    width: 90%;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.project-description-img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
 .hr-project {
     width: 30vw;
-    margin: 0;
-    margin-top: 4vh;
-    margin-bottom: 4vh;
+    margin: 4vh 0;
     border-color: rgb(43, 43, 43);
 }
 

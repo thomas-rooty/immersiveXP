@@ -76,7 +76,7 @@ export default function App() {
   }
 
   //Use and handle section changes
-  const [project, setProject] = useState("who");
+  const [project, setProject] = useState("who am i");
   const handleChangeProject = (projectName) => {
     setProject(undefined);
     setProject(projectName);

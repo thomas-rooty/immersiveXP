@@ -6,6 +6,7 @@ const LandingPage = () => {
     // Add click event listener to the button to hide the landing page
     const hideLandingPage = () => {
         const landingPage = document.getElementsByClassName("landingPage")[0];
+        const landingPageButton = document.getElementsByClassName("landingPage_button")[0];
         const navbar = document.getElementsByClassName("navbar-container")[0];
         const content = document.getElementsByClassName("intro")[0];
         const appClass = document.getElementsByClassName("App")[0];
@@ -17,6 +18,7 @@ const LandingPage = () => {
         // Play the audios
         initClickSound();
         toggleAudio();
+        landingPageButton.remove();
 
         setTimeout(() => {
             landingPage.remove();
@@ -73,7 +75,7 @@ const LandingPage = () => {
             </div>
             <div className="sound-player-container">
                 <img onClick={toggleAudio} src={`/icons/bg-${audioStatus}.gif`} alt='sound-icon' className="sound-icon"/>
-                <audio loop src="/sound/bg.mp3"/>
+                <audio loop src={'/sound/bg.mp3'}/>
             </div>
         </Html>
     );
