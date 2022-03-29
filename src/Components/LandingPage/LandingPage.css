@@ -42,7 +42,7 @@
     border: 0.1rem solid white;
     background: none;
     color: white;
-    font-family: 'Kiona';
+    font-family: 'Kiona', sans-serif;
     font-weight: normal;
     pointer-events: all;
 }
@@ -53,34 +53,8 @@
     font-weight: bold;
 }
 
-/* Sound UI */
-.sound-player-container {
-    position: absolute;
-    bottom: -48vh;
-    left: -25vw;
-}
-
-.sound-icon {
-    filter: invert(100%);
-    border: 2px solid black;
-    padding: 5px;
-    background-color: white;
-    width: 30px;
-    border-radius: 50%;
-    transition: all .2s ease-in-out;
-}
-
-.sound-icon:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-}
-
 @media screen and (max-width: 1220px) {
     .landingPage {
         left: -66vw;
-    }
-    .sound-player-container {
-        bottom: -48vh;
-        right: -110vw;
     }
 }

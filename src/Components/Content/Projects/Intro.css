@@ -158,11 +158,6 @@
         align-items: center;
     }
 
-    .header-fadeOut {
-        width: 100vw;
-        height: 20vh;
-    }
-
     .project-overview {
         width: 100vw;
         justify-content: space-around;
