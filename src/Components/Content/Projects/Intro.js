@@ -1,5 +1,6 @@
 import {React, useContext} from 'react';
 import "./Intro.css";
+import Me from "./me.png";
 import LacxFilms from "./lacxfilms.png";
 import LacxFilms2 from "./lacxfilms2.png";
 import LacxFilms3 from "./lacxfilms3.png";
@@ -48,13 +49,21 @@ const Intro = ({value}) => {
                         <h1 className='project-description-title'>{value.project}</h1>
 
                         {value.project === "who am i" &&
-                            <p className='project-description-text'>
-                                I'm Thomas, a young software development and 3D enthusiast, developing my skills through
-                                several
-                                professional experiences during my internship and other personal projects.<br/><br/>
+                            <>
+                                <p className='project-description-text'>
+                                    I'm Thomas, a young software development and 3D enthusiast, developing my skills
+                                    through
+                                    several
+                                    professional experiences during my internship and other personal projects.<br/><br/>
 
-                                Welcome to my <i>space</i>, I'll leave it up to you to discover this virtual wonder -
-                            </p>
+                                    Welcome to my <i>space</i>, I'll leave it up to you to discover this virtual wonder
+                                    -
+                                </p>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"
+                                   rel="noopener noreferrer">
+                                    <img src={Me} alt="me" className="me-photo project-description-img"/>
+                                </a>
+                            </>
                         }
 
                         {value.project === "lac x films" &&

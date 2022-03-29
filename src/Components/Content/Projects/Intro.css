@@ -134,6 +134,12 @@
     transform: scale(1.02);
 }
 
+.me-photo {
+    width: 300px;
+    height: auto;
+    filter: grayscale(0%);
+}
+
 .hr-project {
     width: 30vw;
     margin: 4vh 0;
