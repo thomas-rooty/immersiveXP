@@ -3,11 +3,17 @@ import "./Intro.css";
 import LacxFilms from "./lacxfilms.png";
 import LacxFilms2 from "./lacxfilms2.png";
 import LacxFilms3 from "./lacxfilms3.png";
+import Isoris from "./isoris.png";
+import IsorisWeapons from "./IsorisWeapons.png";
+import StreetTrial1 from "./StreetTrial1.png";
+import StreetTrial2 from "./StreetTrial2.png";
+import StreetTrial3 from "./StreetTrial3.png";
+import StreetTrial4 from "./StreetTrial4.png";
 
 // Import context
 import PlanetContext from '../../../Context/PlanetContext';
 
-const Intro = (props) => {
+const Intro = ({value}) => {
     const ContextProject = useContext(PlanetContext);
     // Add event listeners to the li elements to toggle the class "active-project"
     const SetActiveSection = (e) => {
@@ -29,12 +35,13 @@ const Intro = (props) => {
                 <ul className='project-overview'>
                     <li onClick={SetActiveSection} className='active-project'>WHO AM I</li>
                     <li onClick={SetActiveSection}>LAC X FILMS</li>
-                    <li onClick={SetActiveSection}>WHERE</li>
+                    <li onClick={SetActiveSection}>DRAGONICA</li>
+                    <li onClick={SetActiveSection}>STREET TRIAL</li>
                 </ul>
                 <div className='project-description'>
-                    <h1 className='project-description-title'>{props.value.project}</h1>
+                    <h1 className='project-description-title'>{value.project}</h1>
 
-                    {props.value.project === "who am i" &&
+                    {value.project === "who am i" &&
                         <p className='project-description-text'>
                             I'm Thomas, a young software development and 3D enthusiast, developing my skills through
                             several
@@ -43,7 +50,7 @@ const Intro = (props) => {
                             Welcome to my <i>space</i>, I'll leave it up to you to discover this virtual wonder -</p>
                     }
 
-                    {props.value.project === "lac x films" &&
+                    {value.project === "lac x films" &&
                         <>
                             <p className='project-description-text'>
                                 Homepage of the <i>LAC X FILMS</i> project, a film production company directed by Kevin
@@ -58,13 +65,33 @@ const Intro = (props) => {
                         </>
                     }
 
-                    {props.value.project === "where" &&
-                        <p className='project-description-text'>
-                            I'm Thomas, a young software development and 3D enthusiast, developing my skills through
-                            several
-                            professional experiences during my internship and other personal projects.<br/><br/>
+                    {value.project === "dragonica" &&
+                        <>
+                            <p className='project-description-text'>
+                                Dragonica is a full sidescrolling MMORPG, free to play, still alive thanks to a small French team
+                                that I've used to work with since the beginning of 2015 till 2020.
+                            </p>
+                            <a href="https://playdragonica.eu" target="_blank" rel="noopener noreferrer">
+                                <img src={Isoris} alt='isoris' className='project-description-img'/>
+                                <img src={IsorisWeapons} alt='isoris' className='project-description-img'/>
+                            </a>
+                        </>
+                    }
 
-                            Welcome to my <i>space</i>, I'll leave it up to you to discover this virtual wonder</p>
+                    {value.project === "street trial" &&
+                        <>
+                            <p className='project-description-text'>
+                                Besides being a full stack developer, I also enjoy riding my bike, it's a big part of my
+                                life and I'm always looking for new challenges. Street Trial is a discipline mixing trial
+                                (parkour on a bicycle), and street BMX.
+                            </p>
+                            <a href="https://instagram.com/tho_macaron" target="_blank" rel="noopener noreferrer">
+                                <img src={StreetTrial1} alt='street trial' className='project-description-img'/>
+                                <img src={StreetTrial2} alt='street trial' className='project-description-img'/>
+                                <img src={StreetTrial3} alt='street trial' className='project-description-img'/>
+                                <img src={StreetTrial4} alt='street trial' className='project-description-img'/>
+                            </a>
+                        </>
                     }
 
                     <hr className='hr-project'/>
@@ -76,7 +103,7 @@ const Intro = (props) => {
     return (
         <div className="intro">
             <div className='header-fadeOut'/>
-            {props.value.planet === "earth" &&
+            {value.planet === "earth" &&
                 EarthProject()
             }
         </div>

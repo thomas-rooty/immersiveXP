@@ -122,7 +122,7 @@
 }
 
 .project-description-img {
-    filter: grayscale(100%);
+    filter: grayscale(80%);
     width: 90%;
     margin-bottom: 20px;
     transition: all 0.3s ease-in-out;
