@@ -91,7 +91,7 @@ const Intro = ({value}) => {
                         {value.project === "street trial" &&
                             <>
                                 <p className='project-description-text'>
-                                    Besides being a full stack developer, I also enjoy riding my bike, it's a big part
+                                    Alongside being a full stack developer, I also enjoy riding my bike, it's a big part
                                     of my
                                     life and I'm always looking for new challenges. Street Trial is a discipline mixing
                                     trial
