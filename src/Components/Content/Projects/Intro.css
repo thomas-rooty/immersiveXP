@@ -140,10 +140,31 @@
     border-color: rgb(43, 43, 43);
 }
 
+.arrow-down {
+    filter: invert(100%) sepia(97%) saturate(0%) hue-rotate(1deg) brightness(103%) contrast(104%);
+    display: none;
+}
+
 
 /* Responsive for smaller screens */
 
 @media screen and (max-width: 1220px) {
+    .arrow-down {
+        display: block;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .arrow-down:hover {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+
     .intro {
         width: 90vw;
         height: 90vh;
@@ -181,6 +202,14 @@
         display: inline-block;
         text-align: center;
         width: 75%;
+    }
+
+    .header-fadeOut {
+        display: none;
+    }
+
+    .hr-project {
+        width: 100vw;
     }
 
 }

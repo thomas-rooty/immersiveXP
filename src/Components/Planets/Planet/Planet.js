@@ -122,9 +122,6 @@ const Planet = (props) => {
                     <Html prepend zIndexRange={[100, 0]} position={[0, -1.5, 1.5]} transform sprite>
                         <p className='planetDesc'>{props.value.planet}</p>
                     </Html>
-                    <Html prepend zIndexRange={[100, 0]} position={[0, 2.2, 0]} transform sprite>
-                        <p className='planetDesc'>PROJECT 1</p>
-                    </Html>
                 </mesh>
             </>
         );

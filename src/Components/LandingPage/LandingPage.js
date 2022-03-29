@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import { Html } from "@react-three/drei"; //Fiber React component for the Planet's atmosphere
 import "./LandingPage.css";
 
