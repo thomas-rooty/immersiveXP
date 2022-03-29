@@ -5,7 +5,6 @@ import LacxFilms2 from "./lacxfilms2.png";
 import LacxFilms3 from "./lacxfilms3.png";
 import Isoris from "./isoris.png";
 import IsorisWeapons from "./IsorisWeapons.png";
-import StreetTrial1 from "./StreetTrial1.png";
 import StreetTrial2 from "./StreetTrial2.png";
 import StreetTrial3 from "./StreetTrial3.png";
 import StreetTrial4 from "./StreetTrial4.png";
@@ -86,7 +85,6 @@ const Intro = ({value}) => {
                                 (parkour on a bicycle), and street BMX.
                             </p>
                             <a href="https://instagram.com/tho_macaron" target="_blank" rel="noopener noreferrer">
-                                <img src={StreetTrial1} alt='street trial' className='project-description-img'/>
                                 <img src={StreetTrial2} alt='street trial' className='project-description-img'/>
                                 <img src={StreetTrial3} alt='street trial' className='project-description-img'/>
                                 <img src={StreetTrial4} alt='street trial' className='project-description-img'/>
