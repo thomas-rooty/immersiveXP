@@ -37,14 +37,14 @@ const Intro = ({value}) => {
                 <AnchorLink href="#projects">
                     <img className="arrow-down" src={ArrowDown} alt="arrow down"/>
                 </AnchorLink>
-                <ul className='project-overview'>
-                    <li onClick={SetActiveSection} className='active-project'>WHO AM I</li>
-                    <li onClick={SetActiveSection}>LAC X FILMS</li>
-                    <li onClick={SetActiveSection}>DRAGONICA</li>
-                    <li onClick={SetActiveSection}>STREET TRIAL</li>
-                </ul>
-                <div className='project-description'>
-                    <section id="projects">
+                <section id="projects">
+                    <ul className='project-overview'>
+                        <li onClick={SetActiveSection} className='active-project'>WHO AM I</li>
+                        <li onClick={SetActiveSection}>LAC X FILMS</li>
+                        <li onClick={SetActiveSection}>DRAGONICA</li>
+                        <li onClick={SetActiveSection}>STREET TRIAL</li>
+                    </ul>
+                    <div className='project-description'>
                         <h1 className='project-description-title'>{value.project}</h1>
 
                         {value.project === "who am i" &&
@@ -104,9 +104,9 @@ const Intro = ({value}) => {
                                 </a>
                             </>
                         }
-                    </section>
-                    <hr className='hr-project'/>
-                </div>
+                        <hr className='hr-project'/>
+                    </div>
+                </section>
             </>
         )
     }
