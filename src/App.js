@@ -18,7 +18,7 @@ import Navbar from './Components/Navbar/Navbar';
 import LandingPage from './Components/LandingPage/LandingPage';
 
 // Import content
-import Intro from './Components/Content/Projects/Intro';
+import Projects from './Components/Content/Projects/Projects';
 
 //Controls component that will be used in the scene to control the camera and the scene
 extend({ OrbitControls })
@@ -108,7 +108,7 @@ export default function App() {
           </Canvas>
         </div>
         {/* Content */}
-        <Intro value={{ handleChangeProject, project, planet }} />
+        <Projects value={{ handleChangeProject, project, planet }} />
       </PlanetContext.Provider >
     </>
   );

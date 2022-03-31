@@ -1,6 +1,5 @@
 import {React, useContext} from 'react';
-import "./Intro.css";
-import Me from "./me.png";
+import "./Projects.css";
 import LacxFilms from "./lacxfilms.png";
 import LacxFilms2 from "./lacxfilms2.png";
 import LacxFilms3 from "./lacxfilms3.png";
@@ -16,7 +15,7 @@ import ArrowDown from "./arrow-down.svg";
 // Import context
 import PlanetContext from '../../../Context/PlanetContext';
 
-const Intro = ({value}) => {
+const Projects = ({value}) => {
     const ContextProject = useContext(PlanetContext);
     // Add event listeners to the li elements to toggle the class "active-project"
     const SetActiveSection = (e) => {
@@ -32,7 +31,7 @@ const Intro = ({value}) => {
     }
 
     // Projects texts
-    const EarthProject = () => {
+    const Projects = () => {
         return (
             <>
                 <AnchorLink href="#projects">
@@ -59,10 +58,6 @@ const Intro = ({value}) => {
                                     Welcome to my <i>space</i>, I'll leave it up to you to discover this virtual wonder
                                     -
                                 </p>
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"
-                                   rel="noopener noreferrer">
-                                    <img src={Me} alt="me" className="me-photo project-description-img"/>
-                                </a>
                             </>
                         }
 
@@ -123,11 +118,9 @@ const Intro = ({value}) => {
     return (
         <div className="intro">
             <div className='header-fadeOut'/>
-            {value.planet === "earth" &&
-                EarthProject()
-            }
+            {Projects()}
         </div>
     )
 }
 
-export default Intro;
+export default Projects;
