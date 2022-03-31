@@ -1,15 +1,15 @@
 import {React, useContext} from 'react';
 import "./Projects.css";
-import LacxFilms from "./lacxfilms.png";
-import LacxFilms2 from "./lacxfilms2.png";
-import LacxFilms3 from "./lacxfilms3.png";
-import Isoris from "./isoris.png";
-import IsorisWeapons from "./IsorisWeapons.png";
-import StreetTrial2 from "./StreetTrial2.png";
-import StreetTrial3 from "./StreetTrial3.png";
-import StreetTrial4 from "./StreetTrial4.png";
+import LacxFilms from "./Assets/lacxfilms.png";
+import LacxFilms2 from "./Assets/lacxfilms2.png";
+import LacxFilms3 from "./Assets/lacxfilms3.png";
+import Isoris from "./Assets/isoris.png";
+import IsorisWeapons from "./Assets/IsorisWeapons.png";
+import StreetTrial2 from "./Assets/StreetTrial2.png";
+import StreetTrial3 from "./Assets/StreetTrial3.png";
+import StreetTrial4 from "./Assets/StreetTrial4.png";
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import ArrowDown from "./arrow-down.svg";
+import ArrowDown from "./Assets/arrow-down.svg";
 
 
 // Import context
